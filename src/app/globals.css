@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Cinzel', 'Playfair Display', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #070709;
+    color: #F5F3EB;
+  }
+
+  body {
+    background-color: #070709;
+    color: #F5F3EB;
+    overflow-x: hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #D4AF37;
+    color: #070709;
+  }
+
+  /* Custom dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0e12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #272937;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FDF0CD 0%, #D4AF37 50%, #AA820A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gold-subtle {
+    border-color: rgba(212, 175, 55, 0.2);
+  }
+
+  .bg-glass {
+    background: rgba(13, 14, 18, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .bg-glass-card {
+    background: rgba(23, 24, 33, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.25);
+  }
+}
