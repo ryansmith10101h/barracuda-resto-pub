@@ -4,13 +4,16 @@ import { getGalleryItems } from '@/lib/store';
 import { Camera } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Atmosphere & Gallery | Cocktails, Grills & Nightlife Vibes',
+  title: 'Atmosphere & Venue Gallery | Cocktails, Grills & Nightlife Abuja',
   description:
-    'Browse photo chronicles of Barracuda Resto Pub in Wuse 2, Abuja. Highlighting our interior design, charcoal grills, cocktail presentations, and weekend crowd atmosphere.',
+    'Browse photo chronicles of Barracuda Resto Pub in Wuse 2, Abuja. Highlighting our interior design, charcoal grills, cocktail presentations, VIP booths, and weekend nightlife.',
   openGraph: {
-    title: 'Barracuda Resto Pub Gallery | Wuse 2, Abuja',
-    description: 'Visual atmosphere of Abuja’s premier resto-pub: grills, cocktails, VIP lounges, and nightlife.',
+    title: 'Barracuda Resto Pub Venue Gallery | Wuse 2, Abuja',
+    description: 'Visual atmosphere of Abuja’s premier gastropub: grills, craft cocktails, VIP lounges, and nightlife.',
     images: ['https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80'],
+  },
+  alternates: {
+    canonical: '/gallery',
   },
 };
 
@@ -24,9 +27,9 @@ export default function GalleryPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-900 border border-gold/40 text-gold text-xs uppercase font-bold tracking-widest shadow-gold-sm">
-            <Camera className="w-3.5 h-3.5" />
-            <span>Visual Atmosphere & Chronicles</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-espresso-900 border border-bronze/40 text-champagne text-xs uppercase font-bold tracking-widest shadow-bronze-sm">
+            <Camera className="w-3.5 h-3.5 text-bronze" />
+            <span>VISUAL CHRONICLES & ATMOSPHERE</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-black text-cream-50 leading-tight">

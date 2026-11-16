@@ -57,7 +57,7 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="p-8 rounded-3xl bg-dark-900 border border-gold/40 text-center shadow-gold-sm space-y-4">
+      <div className="p-8 rounded-3xl bg-espresso-950 border border-bronze/40 text-center shadow-bronze-sm space-y-4">
         <div className="w-14 h-14 rounded-full bg-emerald-500/10 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-7 h-7" />
         </div>
@@ -68,7 +68,7 @@ export default function ContactForm() {
         <div className="pt-2">
           <button
             onClick={() => setSuccess(false)}
-            className="px-6 py-2.5 rounded-full bg-dark-850 hover:bg-dark-800 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider"
+            className="px-6 py-2.5 rounded-full bg-espresso-900 hover:bg-espresso-850 text-champagne border border-bronze/30 text-xs font-bold uppercase tracking-wider"
           >
             Send Another Message
           </button>
@@ -78,15 +78,15 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="p-8 rounded-3xl bg-dark-900 border border-white/10 shadow-elevated">
+    <div className="p-8 rounded-3xl bg-espresso-950 border border-white/10 shadow-elevated">
       <div className="mb-6 space-y-2">
-        <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase block">
+        <span className="text-[11px] font-bold tracking-[0.25em] text-bronze uppercase block">
           MESSAGE THE CONCIERGE
         </span>
         <h3 className="font-serif text-2xl font-black text-cream-50">
           Send Us a Direct Message
         </h3>
-        <p className="text-cream-400 text-xs leading-relaxed">
+        <p className="text-cream-300 text-xs leading-relaxed">
           For corporate event bookings, private lounge buyout inquiries, or special culinary requests.
         </p>
       </div>
@@ -101,7 +101,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <label className="text-[11px] font-semibold text-cream-300 uppercase tracking-wider">
+            <label className="text-[11px] font-semibold text-cream-200 uppercase tracking-wider">
               Your Name *
             </label>
             <input
@@ -110,12 +110,12 @@ export default function ContactForm() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Maryam Bello"
-              className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-gold transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[11px] font-semibold text-cream-300 uppercase tracking-wider">
+            <label className="text-[11px] font-semibold text-cream-200 uppercase tracking-wider">
               Phone Number *
             </label>
             <input
@@ -124,14 +124,14 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="+234 812 345 6789"
-              className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-gold transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
-            <label className="text-[11px] font-semibold text-cream-300 uppercase tracking-wider">
+            <label className="text-[11px] font-semibold text-cream-200 uppercase tracking-wider">
               Email Address *
             </label>
             <input
@@ -140,21 +140,21 @@ export default function ContactForm() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="maryam@example.com"
-              className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-gold transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[11px] font-semibold text-cream-300 uppercase tracking-wider">
+            <label className="text-[11px] font-semibold text-cream-200 uppercase tracking-wider">
               Subject
             </label>
             <select
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-sm focus:outline-none focus:border-gold transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-sm focus:outline-none focus:border-bronze transition-colors"
             >
               <option value="General Enquiry">General Enquiry</option>
-              <option value="VIP Booth & Bottle Reservation">VIP Booth & Bottle Reservation</option>
+              <option value="VIP Booth & Bottle Hospitality">VIP Booth & Bottle Hospitality</option>
               <option value="Private Lounge Buyout">Private Lounge Buyout</option>
               <option value="Event Collaboration / Performance">Event Collaboration / Performance</option>
               <option value="Feedback / Experience">Feedback / Experience</option>
@@ -163,7 +163,7 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-cream-300 uppercase tracking-wider">
+          <label className="text-[11px] font-semibold text-cream-200 uppercase tracking-wider">
             Your Message *
           </label>
           <textarea
@@ -172,7 +172,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Tell us about your requirements, date, or party size..."
-            className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-gold transition-colors resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors resize-none"
           />
         </div>
 
@@ -180,7 +180,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-gold text-dark-950 font-bold uppercase tracking-wider text-xs shadow-gold-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+            className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs shadow-bronze-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-60"
           >
             {loading ? (
               <>
@@ -196,7 +196,7 @@ export default function ContactForm() {
           </button>
 
           <a
-            href={getWhatsAppUrl(whatsapp, 'Hello Barracuda Resto Pub, I have a quick enquiry.')}
+            href={getWhatsAppUrl(whatsapp, 'Hello Barracuda Resto Pub, I have an enquiry.')}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto py-3.5 px-6 rounded-full bg-emerald-950/60 hover:bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2"

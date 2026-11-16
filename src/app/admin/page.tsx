@@ -11,7 +11,6 @@ export default function AdminPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if passcode was previously stored in sessionStorage
     const saved = sessionStorage.getItem('barracuda_admin_passcode');
     if (saved) {
       setPasscode(saved);
@@ -23,7 +22,6 @@ export default function AdminPage() {
     e.preventDefault();
     setError(null);
 
-    // Verify passcode against API or standard default
     const expected = process.env.NEXT_PUBLIC_ADMIN_PASSCODE || 'barracuda_abuja_2026';
     if (inputPasscode === expected || inputPasscode === 'barracuda_abuja_2026') {
       sessionStorage.setItem('barracuda_admin_passcode', inputPasscode);
@@ -43,20 +41,20 @@ export default function AdminPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-[85vh] flex items-center justify-center bg-dark-950 px-4 py-16">
-        <div className="max-w-md w-full bg-dark-900 border border-gold/30 rounded-3xl p-8 sm:p-10 shadow-gold-sm text-center space-y-6">
-          <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/30 text-gold flex items-center justify-center mx-auto">
+        <div className="max-w-md w-full bg-espresso-950 border border-bronze/30 rounded-3xl p-8 sm:p-10 shadow-elevated text-center space-y-6">
+          <div className="w-16 h-16 rounded-full bg-bronze/10 border border-bronze/30 text-champagne flex items-center justify-center mx-auto">
             <Shield className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-gold">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-bronze">
               SECURE PORTAL
             </span>
             <h1 className="font-serif text-2xl font-bold text-cream-50">
               Staff & Manager Access
             </h1>
             <p className="text-cream-400 text-xs">
-              Enter your manager passcode to access the Barracuda Resto Pub administration console.
+              Enter the manager passcode to access the Barracuda Resto Pub administration console.
             </p>
           </div>
 
@@ -75,20 +73,20 @@ export default function AdminPage() {
                 value={inputPasscode}
                 onChange={(e) => setInputPasscode(e.target.value)}
                 placeholder="Manager Passcode (e.g. barracuda_abuja_2026)"
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-gold transition-colors text-center"
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors text-center"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-gold text-dark-950 font-bold uppercase tracking-wider text-xs shadow-gold-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs shadow-bronze-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
             >
               <span>ACCESS DASHBOARD</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
             <p className="text-[10px] text-cream-500">
-              Passcode for local preview: <code className="text-gold font-mono">barracuda_abuja_2026</code>
+              Passcode for local preview: <code className="text-champagne font-mono">barracuda_abuja_2026</code>
             </p>
           </form>
         </div>

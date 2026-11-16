@@ -18,7 +18,9 @@ export type EventItem = {
   subtitle: string;
   date: string; // YYYY-MM-DD
   dayOfWeek: string;
-  time: string; // e.g. "8:00 PM till Late"
+  time: string; // e.g. "9:00 PM – 4:00 AM"
+  startTime?: string;
+  endTime?: string;
   description: string;
   coverImage: string;
   dressCode?: string;
@@ -26,12 +28,13 @@ export type EventItem = {
   ticketPrice?: number;
   status: 'upcoming' | 'ongoing' | 'past';
   featured?: boolean;
+  isRecurring?: boolean; // Weekly residency vs special dated event
 };
 
 export type GalleryItem = {
   id: string;
   title: string;
-  category: 'Ambiance & VIP' | 'Culinary & Grills' | 'Mixology & Bar' | 'Weekend Energy';
+  category: 'Food and Grills' | 'Cocktails' | 'Interior' | 'VIP Booths' | 'Outdoor Terrace' | 'Events and Nightlife';
   imageUrl: string;
   description?: string;
 };
@@ -46,7 +49,7 @@ export type Reservation = {
   time: string;
   guestsCount: number;
   seatingArea: 'Main Lounge' | 'VIP Booth' | 'Outdoor Terrace' | 'Bar Counter';
-  occasion?: 'Casual Night Out' | 'Birthday Celebration' | 'Date Night' | 'Corporate Dinner' | 'After-Work Drinks';
+  occasion?: 'Casual Dining & Drinks' | 'Birthday Celebration' | 'Date Night' | 'Corporate Dinner' | 'Private Lounge Celebration';
   specialRequests?: string;
   status: 'pending' | 'confirmed' | 'cancelled';
   createdAt: string;

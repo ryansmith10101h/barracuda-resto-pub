@@ -14,12 +14,14 @@ interface FoodDrinksShowcaseProps {
 export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
   const [activeTab, setActiveTab] = useState<'all' | 'grills' | 'cocktails' | 'mains'>('all');
 
-  const filteredItems = items.filter((item) => {
-    if (activeTab === 'grills') return item.category === 'Grills & Suya';
-    if (activeTab === 'cocktails') return item.category === 'Signature Cocktails';
-    if (activeTab === 'mains') return item.category === 'Main Meals' || item.category === 'Small Plates';
-    return item.isSpecial || ['menu-1', 'menu-2', 'menu-14', 'menu-15', 'menu-10', 'menu-3'].includes(item.id);
-  }).slice(0, 6);
+  const filteredItems = items
+    .filter((item) => {
+      if (activeTab === 'grills') return item.category === 'Grills & Suya';
+      if (activeTab === 'cocktails') return item.category === 'Signature Cocktails';
+      if (activeTab === 'mains') return item.category === 'Main Meals' || item.category === 'Small Plates';
+      return item.isSpecial || ['menu-1', 'menu-2', 'menu-14', 'menu-15', 'menu-10', 'menu-3'].includes(item.id);
+    })
+    .slice(0, 6);
 
   return (
     <section className="py-24 bg-dark-950 relative overflow-hidden">
@@ -27,15 +29,15 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div className="space-y-3">
-            <span className="text-xs font-bold tracking-[0.25em] text-gold uppercase block">
-              CULINARY & MIXOLOGY SELECTION
+            <span className="text-[11px] font-bold tracking-[0.25em] text-bronze uppercase block">
+              SIGNATURE SELECTION
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-cream-50">
-              Signature Dishes & Handcrafted Drinks.
+              Signature Dishes & Handcrafted Cocktails.
             </h2>
-            <p className="text-cream-400 text-sm max-w-xl">
-              Authentic African charcoal grilling infused with international gastropub artistry.
-              Each dish is prepared fresh to order in Wuse 2.
+            <p className="text-cream-400 text-sm max-w-xl leading-relaxed">
+              Authentic Nigerian charcoal grilling infused with contemporary gastropub artistry.
+              Every dish is freshly prepared to order on hardwood coals in Wuse 2.
             </p>
           </div>
 
@@ -45,8 +47,8 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
               onClick={() => setActiveTab('all')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap ${
                 activeTab === 'all'
-                  ? 'bg-gold text-dark-950 shadow-gold-sm'
-                  : 'bg-dark-850 text-cream-300 hover:text-gold border border-white/5'
+                  ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+                  : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
               }`}
             >
               Signatures
@@ -55,8 +57,8 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
               onClick={() => setActiveTab('grills')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap ${
                 activeTab === 'grills'
-                  ? 'bg-gold text-dark-950 shadow-gold-sm'
-                  : 'bg-dark-850 text-cream-300 hover:text-gold border border-white/5'
+                  ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+                  : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
               }`}
             >
               Charcoal Grills
@@ -65,8 +67,8 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
               onClick={() => setActiveTab('cocktails')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap ${
                 activeTab === 'cocktails'
-                  ? 'bg-gold text-dark-950 shadow-gold-sm'
-                  : 'bg-dark-850 text-cream-300 hover:text-gold border border-white/5'
+                  ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+                  : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
               }`}
             >
               Cocktails
@@ -75,8 +77,8 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
               onClick={() => setActiveTab('mains')}
               className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap ${
                 activeTab === 'mains'
-                  ? 'bg-gold text-dark-950 shadow-gold-sm'
-                  : 'bg-dark-850 text-cream-300 hover:text-gold border border-white/5'
+                  ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+                  : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
               }`}
             >
               Mains & Tapas
@@ -89,68 +91,72 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group bg-dark-900 rounded-2xl overflow-hidden border border-white/10 hover:border-gold/40 transition-all duration-300 flex flex-col hover:shadow-gold-sm"
+              className="group bg-espresso-900/80 rounded-3xl overflow-hidden border border-white/10 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between hover:shadow-elevated"
             >
-              {/* Image Container */}
-              <div className="relative h-60 w-full overflow-hidden bg-dark-850">
-                {item.imageUrl ? (
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-dark-800 text-cream-400">
-                    <Flame className="w-8 h-8 text-gold" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80" />
+              <div>
+                {/* Image Container */}
+                <div className="relative h-60 w-full overflow-hidden bg-espresso-950">
+                  {item.imageUrl ? (
+                    <Image
+                      src={item.imageUrl}
+                      alt={`${item.name} served at Barracuda Resto Pub`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 filter brightness-95"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-espresso-950 text-cream-400">
+                      <Flame className="w-8 h-8 text-bronze" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-espresso-950 via-transparent to-transparent opacity-85" />
 
-                {/* Badge tags */}
-                <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                  {item.isSpecial && (
-                    <span className="px-2.5 py-1 rounded-full bg-gold text-dark-950 font-extrabold text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                      <Sparkles className="w-3 h-3" />
-                      <span>Special</span>
-                    </span>
-                  )}
-                  {item.isSpicy && (
-                    <span className="px-2.5 py-1 rounded-full bg-red-600/90 text-white font-extrabold text-[10px] uppercase tracking-wider flex items-center gap-1">
-                      <Flame className="w-3 h-3" />
-                      <span>Spicy</span>
-                    </span>
-                  )}
+                  {/* Badge tags */}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                    {item.isSpecial && (
+                      <span className="px-2.5 py-1 rounded-full bg-bronze text-dark-950 font-black text-[10px] uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                        <Sparkles className="w-3 h-3" />
+                        <span>Signature</span>
+                      </span>
+                    )}
+                    {item.isSpicy && (
+                      <span className="px-2.5 py-1 rounded-full bg-amber-accent/90 text-white font-extrabold text-[10px] uppercase tracking-wider flex items-center gap-1">
+                        <Flame className="w-3 h-3" />
+                        <span>Spicy</span>
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Category tag */}
+                  <span className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-md bg-dark-950/90 backdrop-blur-sm border border-white/10 text-[10px] uppercase font-semibold text-cream-300">
+                    {item.category}
+                  </span>
                 </div>
 
-                {/* Category tag */}
-                <span className="absolute bottom-3 right-3 px-2.5 py-0.5 rounded-md bg-dark-950/80 backdrop-blur-sm border border-white/10 text-[10px] uppercase font-semibold text-cream-300">
-                  {item.category}
-                </span>
-              </div>
-
-              {/* Item Details */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className="font-serif font-bold text-lg text-cream-50 group-hover:text-gold transition-colors">
-                      {item.name}
-                    </h3>
-                  </div>
+                {/* Item Details */}
+                <div className="p-6 space-y-3">
+                  <h3 className="font-serif font-bold text-lg text-cream-50 group-hover:text-champagne transition-colors">
+                    {item.name}
+                  </h3>
                   <p className="text-cream-400 text-xs leading-relaxed line-clamp-3">
                     {item.description}
                   </p>
                 </div>
+              </div>
 
+              {/* Price & Action */}
+              <div className="p-6 pt-0">
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="font-serif text-xl font-black text-gold">
-                    {formatNaira(item.price)}
-                  </span>
+                  <div>
+                    <span className="text-[10px] text-cream-400 uppercase tracking-wider block">Price</span>
+                    <span className="font-serif text-xl font-bold text-champagne">
+                      {formatNaira(item.price)}
+                    </span>
+                  </div>
 
                   <Link
                     href={`/reservations?dish=${encodeURIComponent(item.name)}`}
-                    className="text-xs uppercase font-bold tracking-wider text-cream-300 hover:text-gold transition-colors"
+                    className="px-4 py-2 rounded-full bg-espresso-850 hover:bg-bronze hover:text-dark-950 text-cream-200 text-xs font-semibold uppercase tracking-wider border border-white/10 transition-colors"
                   >
                     Reserve Table
                   </Link>
@@ -164,9 +170,9 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
         <div className="mt-14 text-center">
           <Link
             href="/menu"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-dark-900 border border-gold/40 hover:border-gold text-gold hover:bg-dark-850 font-bold uppercase tracking-widest text-xs transition-all shadow-gold-sm"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-espresso-900 border border-bronze/40 hover:border-bronze text-champagne hover:bg-espresso-850 font-bold uppercase tracking-widest text-xs transition-all shadow-bronze-sm"
           >
-            <span>VIEW COMPLETE DIGITAL MENU (WITH PRICES)</span>
+            <span>VIEW COMPLETE DIGITAL MENU (23 ITEMS)</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

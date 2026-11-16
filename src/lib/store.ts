@@ -161,7 +161,7 @@ export function createReservation(data: {
     time: data.time,
     guestsCount: Number(data.guestsCount),
     seatingArea: data.seatingArea || 'Main Lounge',
-    occasion: data.occasion || 'Casual Night Out',
+    occasion: data.occasion || 'Casual Dining & Drinks',
     specialRequests: data.specialRequests || '',
     status: 'pending',
     createdAt: new Date().toISOString(),

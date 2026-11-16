@@ -27,20 +27,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://barracudarestpub.ng'),
   title: {
-    default: 'Barracuda Resto Pub | Abuja’s Premier Culinary & Nightlife Sanctuary',
+    default: 'Barracuda Resto Pub | Abuja’s Premier Gastropub & Nightlife Sanctuary',
     template: '%s | Barracuda Resto Pub Abuja',
   },
   description:
-    'Experience Abuja’s finest resto-pub on Adetokunbo Ademola Crescent, Wuse 2. Charcoal-grilled Nigerian suya, craft cocktails, VIP lounge, and premier nightlife ambiance.',
+    'Experience Abuja’s premier gastropub on Adetokunbo Ademola Crescent, Wuse 2. Charcoal-grilled Nigerian cuisine, bespoke craft cocktails, VIP booths, and exclusive nightlife ambiance.',
   keywords: [
+    'Restaurant in Wuse 2 Abuja',
+    'Gastropub in Abuja',
+    'Premium restaurant in Abuja',
+    'Cocktail bar in Wuse 2',
+    'Nightlife in Abuja',
+    'VIP dining in Abuja',
+    'Private event venue in Abuja',
+    'Charcoal grilled food in Abuja',
     'barracuda resto pub',
-    'restaurant in wuse abuja',
-    'pub in abuja',
-    'nightlife in abuja',
-    'food and drinks in wuse 2',
-    'suya and grills abuja',
-    'cocktails bar wuse',
-    'vip lounge abuja',
     'adetokunbo ademola crescent restaurants',
   ],
   authors: [{ name: 'Barracuda Resto Pub' }],
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     siteName: 'Barracuda Resto Pub Abuja',
     title: 'Barracuda Resto Pub | Good Food. Great Drinks. Better Nights.',
     description:
-      'Abuja’s premier nightlife and dining destination in Wuse 2. Explore our charcoal grills, signature cocktails, upcoming events, and VIP table reservations.',
+      'Abuja’s premier nightlife and dining destination in Wuse 2. Explore our charcoal grills, craft cocktails, upcoming events, and VIP table reservations.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
@@ -79,6 +80,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'google-site-verification-placeholder-barracuda',
+  },
 };
 
 export default function RootLayout({
@@ -86,60 +90,84 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  // Comprehensive Schema.org Graph (Restaurant, BarOrPub, FoodEstablishment, Organization, WebSite)
+  const schemaGraph = {
     '@context': 'https://schema.org',
-    '@type': ['Restaurant', 'BarOrPub'],
-    name: 'Barracuda Resto Pub',
-    image: [
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': 'https://barracudarestpub.ng/#website',
+        url: 'https://barracudarestpub.ng',
+        name: 'Barracuda Resto Pub Abuja',
+        description: 'Abuja’s Premier Gastropub, Dining & Nightlife Sanctuary in Wuse 2.',
+        publisher: {
+          '@id': 'https://barracudarestpub.ng/#organization',
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': 'https://barracudarestpub.ng/#organization',
+        name: 'Barracuda Resto Pub',
+        url: 'https://barracudarestpub.ng',
+        logo: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+2349122356336',
+          contactType: 'reservations',
+          areaServed: 'NG',
+          availableLanguage: ['English'],
+        },
+        sameAs: ['https://instagram.com/barracuda_restpub'],
+      },
+      {
+        '@type': ['Restaurant', 'BarOrPub', 'FoodEstablishment'],
+        '@id': 'https://barracudarestpub.ng/#restaurant',
+        name: 'Barracuda Resto Pub',
+        image: [
+          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80',
+        ],
+        url: 'https://barracudarestpub.ng',
+        telephone: '+2349122356336',
+        priceRange: '₦₦₦',
+        menu: 'https://barracudarestpub.ng/menu',
+        servesCuisine: ['Nigerian Contemporary', 'Charcoal Grills', 'Gastropub', 'Craft Cocktails'],
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Adetokunbo Ademola Crescent',
+          addressLocality: 'Wuse 2',
+          addressRegion: 'Abuja (FCT)',
+          postalCode: '900288',
+          addressCountry: 'NG',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 9.0765,
+          longitude: 7.4764,
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'],
+            opens: '16:00',
+            closes: '02:00',
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Friday', 'Saturday'],
+            opens: '16:00',
+            closes: '04:00',
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Sunday'],
+            opens: '15:00',
+            closes: '02:00',
+          },
+        ],
+        acceptsReservations: 'True',
+      },
     ],
-    '@id': 'https://barracudarestpub.ng',
-    url: 'https://barracudarestpub.ng',
-    telephone: '+2349122356336',
-    priceRange: '₦₦₦',
-    menu: 'https://barracudarestpub.ng/menu',
-    servesCuisine: ['Nigerian Contemporary', 'Charcoal Grills', 'Gastropub', 'Craft Cocktails'],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Adetokunbo Ademola Crescent',
-      addressLocality: 'Wuse 2',
-      addressRegion: 'Abuja (FCT)',
-      postalCode: '900288',
-      addressCountry: 'NG',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 9.0765,
-      longitude: 7.4764,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'],
-        opens: '16:00',
-        closes: '02:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Friday', 'Saturday'],
-        opens: '16:00',
-        closes: '04:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Sunday'],
-        opens: '15:00',
-        closes: '02:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday'],
-        opens: '17:00',
-        closes: '00:00',
-      },
-    ],
-    acceptsReservations: 'True',
   };
 
   return (
@@ -147,10 +175,10 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-dark-950 text-cream-100 selection:bg-gold selection:text-dark-950 font-sans">
+      <body className="min-h-screen flex flex-col bg-dark-950 text-cream-100 selection:bg-bronze selection:text-dark-950 font-sans">
         <Header />
         <main className="flex-1 w-full">{children}</main>
         <Footer />

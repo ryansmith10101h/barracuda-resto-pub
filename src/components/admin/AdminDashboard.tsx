@@ -57,13 +57,16 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
     subtitle: '',
     date: new Date().toISOString().split('T')[0],
     dayOfWeek: 'Friday',
-    time: '9:00 PM till Late',
+    time: '9:00 PM – 4:00 AM',
+    startTime: '9:00 PM',
+    endTime: '4:00 AM',
     description: '',
     coverImage: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
     dressCode: 'Smart Casual / Nightlife Chic',
     entryType: 'Table Reservation' as EventItem['entryType'],
     ticketPrice: 0,
     status: 'upcoming' as EventItem['status'],
+    isRecurring: true,
   });
 
   const fetchData = async () => {
@@ -276,10 +279,10 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
 
   return (
     <div className="space-y-8">
-      {/* Top Admin Bar */}
-      <div className="bg-dark-900 border border-white/10 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Top Admin Header Bar */}
+      <div className="bg-espresso-950 border border-white/10 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-gold block">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-bronze block">
             BARRACUDA RESTO PUB ABUJA
           </span>
           <h1 className="font-serif text-2xl font-black text-cream-50">
@@ -290,7 +293,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
         <div className="flex items-center gap-3">
           <button
             onClick={fetchData}
-            className="p-2.5 rounded-xl bg-dark-850 hover:bg-dark-800 text-cream-200 border border-white/10 text-xs flex items-center gap-2"
+            className="p-2.5 rounded-xl bg-espresso-900 hover:bg-espresso-850 text-cream-200 border border-white/10 text-xs flex items-center gap-2"
             title="Refresh Data"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -319,8 +322,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           onClick={() => setActiveTab('reservations')}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
             activeTab === 'reservations'
-              ? 'bg-gold text-dark-950 shadow-gold-sm'
-              : 'text-cream-300 hover:text-gold hover:bg-dark-900'
+              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+              : 'text-cream-300 hover:text-champagne hover:bg-espresso-900'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -331,8 +334,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           onClick={() => setActiveTab('menu')}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
             activeTab === 'menu'
-              ? 'bg-gold text-dark-950 shadow-gold-sm'
-              : 'text-cream-300 hover:text-gold hover:bg-dark-900'
+              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+              : 'text-cream-300 hover:text-champagne hover:bg-espresso-900'
           }`}
         >
           <UtensilsCrossed className="w-4 h-4" />
@@ -343,8 +346,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           onClick={() => setActiveTab('events')}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
             activeTab === 'events'
-              ? 'bg-gold text-dark-950 shadow-gold-sm'
-              : 'text-cream-300 hover:text-gold hover:bg-dark-900'
+              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+              : 'text-cream-300 hover:text-champagne hover:bg-espresso-900'
           }`}
         >
           <PartyPopper className="w-4 h-4" />
@@ -355,8 +358,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           onClick={() => setActiveTab('enquiries')}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
             activeTab === 'enquiries'
-              ? 'bg-gold text-dark-950 shadow-gold-sm'
-              : 'text-cream-300 hover:text-gold hover:bg-dark-900'
+              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+              : 'text-cream-300 hover:text-champagne hover:bg-espresso-900'
           }`}
         >
           <Mail className="w-4 h-4" />
@@ -367,8 +370,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           onClick={() => setActiveTab('settings')}
           className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
             activeTab === 'settings'
-              ? 'bg-gold text-dark-950 shadow-gold-sm'
-              : 'text-cream-300 hover:text-gold hover:bg-dark-900'
+              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
+              : 'text-cream-300 hover:text-champagne hover:bg-espresso-900'
           }`}
         >
           <Settings className="w-4 h-4" />
@@ -381,7 +384,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="font-serif text-xl font-bold text-cream-50">
-              Table Bookings & VIP Requests
+              Table & VIP Booth Booking Requests
             </h2>
             <span className="text-xs text-cream-400">
               Hold grace period: 20 minutes from booking time
@@ -392,11 +395,11 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
             {reservations.map((res) => (
               <div
                 key={res.id}
-                className="p-6 rounded-2xl bg-dark-900 border border-white/10 hover:border-gold/30 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                className="p-6 rounded-2xl bg-espresso-950 border border-white/10 hover:border-bronze/30 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6"
               >
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-gold px-2.5 py-1 rounded-md bg-dark-850 border border-gold/20">
+                    <span className="font-mono text-sm font-bold text-champagne px-2.5 py-1 rounded-md bg-espresso-900 border border-bronze/20">
                       {res.bookingRef}
                     </span>
                     <span
@@ -416,16 +419,16 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   </div>
 
                   <h3 className="font-serif font-bold text-lg text-cream-100">
-                    {res.name} — <span className="text-gold">{res.guestsCount} Persons</span> ({res.seatingArea})
+                    {res.name} — <span className="text-champagne">{res.guestsCount} Persons</span> ({res.seatingArea})
                   </h3>
 
                   <div className="flex flex-wrap gap-4 text-xs text-cream-300">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-gold" />
+                      <Calendar className="w-3.5 h-3.5 text-bronze" />
                       {res.date} at {res.time}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Phone className="w-3.5 h-3.5 text-gold" />
+                      <Phone className="w-3.5 h-3.5 text-bronze" />
                       <a href={getTelUrl(res.phone)} className="hover:underline">
                         {res.phone}
                       </a>
@@ -435,8 +438,8 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   </div>
 
                   {res.specialRequests && (
-                    <p className="text-xs text-cream-400 bg-dark-950 p-3 rounded-xl border border-white/5 mt-2">
-                      <strong className="text-gold">Special Request:</strong> {res.specialRequests}
+                    <p className="text-xs text-cream-400 bg-espresso-900 p-3 rounded-xl border border-white/5 mt-2">
+                      <strong className="text-champagne">Special Request:</strong> {res.specialRequests}
                     </p>
                   )}
                 </div>
@@ -469,7 +472,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   {res.status !== 'cancelled' && (
                     <button
                       onClick={() => handleUpdateReservation(res.id, 'cancelled')}
-                      className="px-3 py-2 rounded-xl bg-dark-850 hover:bg-dark-800 text-rose-400 hover:text-rose-300 border border-rose-500/20 text-xs font-bold uppercase tracking-wider transition-colors"
+                      className="px-3 py-2 rounded-xl bg-espresso-900 hover:bg-espresso-850 text-rose-400 hover:text-rose-300 border border-rose-500/20 text-xs font-bold uppercase tracking-wider transition-colors"
                     >
                       <XCircle className="w-3.5 h-3.5" />
                     </button>
@@ -490,13 +493,13 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 Menu Management
               </h2>
               <p className="text-xs text-cream-400">
-                Edit prices, toggle out-of-stock items, or introduce new seasonal dishes.
+                Edit prices in Nigerian Naira (₦), toggle availability, or introduce seasonal specials.
               </p>
             </div>
 
             <button
               onClick={() => setShowAddMenuModal(true)}
-              className="px-5 py-2.5 rounded-xl bg-gold text-dark-950 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-gold-sm"
+              className="px-5 py-2.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-bronze-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Add New Dish / Drink</span>
@@ -507,18 +510,18 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
             {menuItems.map((item) => (
               <div
                 key={item.id}
-                className="p-5 rounded-2xl bg-dark-900 border border-white/10 flex flex-col justify-between space-y-4"
+                className="p-5 rounded-2xl bg-espresso-950 border border-white/10 flex flex-col justify-between space-y-4"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-serif font-bold text-cream-100 text-base">
                       {item.name}
                     </h3>
-                    <span className="font-serif font-bold text-gold text-sm whitespace-nowrap">
+                    <span className="font-serif font-bold text-champagne text-sm whitespace-nowrap">
                       {formatNaira(item.price)}
                     </span>
                   </div>
-                  <span className="text-[10px] text-cream-400 uppercase tracking-wider block mt-1">
+                  <span className="text-[10px] text-bronze-light uppercase tracking-wider block mt-1">
                     {item.category}
                   </span>
                   <p className="text-xs text-cream-300 mt-2 line-clamp-2">
@@ -558,7 +561,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-serif text-xl font-bold text-cream-50">
-                Nightlife Events Schedule
+                Nightlife Events & Residencies
               </h2>
               <p className="text-xs text-cream-400">
                 Manage upcoming theme nights, resident DJ line-ups, and live music sessions.
@@ -567,7 +570,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
 
             <button
               onClick={() => setShowAddEventModal(true)}
-              className="px-5 py-2.5 rounded-xl bg-gold text-dark-950 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-gold-sm"
+              className="px-5 py-2.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 text-xs font-black uppercase tracking-wider flex items-center gap-2 shadow-bronze-sm"
             >
               <Plus className="w-4 h-4" />
               <span>Add Event</span>
@@ -578,14 +581,14 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
             {events.map((evt) => (
               <div
                 key={evt.id}
-                className="p-6 rounded-2xl bg-dark-900 border border-white/10 flex flex-col justify-between space-y-4"
+                className="p-6 rounded-2xl bg-espresso-950 border border-white/10 flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gold uppercase tracking-wider">
+                    <span className="text-xs font-bold text-champagne uppercase tracking-wider">
                       {evt.dayOfWeek} • {evt.time}
                     </span>
-                    <span className="text-[10px] uppercase px-2 py-0.5 rounded bg-dark-800 text-cream-300">
+                    <span className="text-[10px] uppercase px-2 py-0.5 rounded bg-espresso-900 text-cream-300">
                       {evt.entryType}
                     </span>
                   </div>
@@ -626,7 +629,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
             {enquiries.map((enq) => (
               <div
                 key={enq.id}
-                className="p-6 rounded-2xl bg-dark-900 border border-white/10 space-y-3"
+                className="p-6 rounded-2xl bg-espresso-950 border border-white/10 space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <div>
@@ -640,7 +643,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   </span>
                 </div>
 
-                <p className="text-xs text-cream-200 bg-dark-950 p-4 rounded-xl border border-white/5 leading-relaxed">
+                <p className="text-xs text-cream-200 bg-espresso-900 p-4 rounded-xl border border-white/5 leading-relaxed">
                   {enq.message}
                 </p>
 
@@ -657,9 +660,9 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
 
                   <a
                     href={getTelUrl(enq.phone)}
-                    className="px-4 py-2 rounded-xl bg-dark-850 border border-white/10 text-cream-200 text-xs font-semibold flex items-center gap-2"
+                    className="px-4 py-2 rounded-xl bg-espresso-900 border border-white/10 text-cream-200 text-xs font-semibold flex items-center gap-2"
                   >
-                    <Phone className="w-3.5 h-3.5 text-gold" />
+                    <Phone className="w-3.5 h-3.5 text-bronze" />
                     <span>Call Customer</span>
                   </a>
                 </div>
@@ -671,13 +674,13 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
 
       {/* TAB 5: BUSINESS SETTINGS */}
       {activeTab === 'settings' && businessInfo && (
-        <div className="bg-dark-900 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div className="bg-espresso-950 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
           <div>
             <h2 className="font-serif text-xl font-bold text-cream-50">
-              Business Configuration & Contacts
+              Business Configuration & Operating Schedule
             </h2>
             <p className="text-xs text-cream-400">
-              Update client-provided phone numbers, address, and live website messaging.
+              Update phone numbers, physical address, and live website messaging.
             </p>
           </div>
 
@@ -691,7 +694,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   type="text"
                   value={businessInfo.name}
                   onChange={(e) => setBusinessInfo({ ...businessInfo, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
                 />
               </div>
 
@@ -703,7 +706,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   type="text"
                   value={businessInfo.phone}
                   onChange={(e) => setBusinessInfo({ ...businessInfo, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
                 />
               </div>
             </div>
@@ -711,13 +714,13 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <label className="text-[11px] font-semibold text-cream-300 uppercase">
-                  WhatsApp Contact (Digits only with 234)
+                  WhatsApp Contact (Digits with 234)
                 </label>
                 <input
                   type="text"
                   value={businessInfo.whatsapp}
                   onChange={(e) => setBusinessInfo({ ...businessInfo, whatsapp: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
                 />
               </div>
 
@@ -729,7 +732,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   type="text"
                   value={businessInfo.instagram}
                   onChange={(e) => setBusinessInfo({ ...businessInfo, instagram: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
                 />
               </div>
             </div>
@@ -742,7 +745,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 type="text"
                 value={businessInfo.address}
                 onChange={(e) => setBusinessInfo({ ...businessInfo, address: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
             </div>
 
@@ -754,7 +757,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 type="text"
                 value={businessInfo.headline}
                 onChange={(e) => setBusinessInfo({ ...businessInfo, headline: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
             </div>
 
@@ -766,13 +769,13 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 rows={3}
                 value={businessInfo.subheadline}
                 onChange={(e) => setBusinessInfo({ ...businessInfo, subheadline: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-gold text-dark-950 font-bold uppercase tracking-wider text-xs shadow-gold-sm"
+              className="px-6 py-3 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs shadow-bronze-sm"
             >
               Save Configuration
             </button>
@@ -783,7 +786,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
       {/* Modal: Add Menu Item */}
       {showAddMenuModal && (
         <div className="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-dark-900 border border-gold/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4">
+          <div className="bg-espresso-950 border border-bronze/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4">
             <h3 className="font-serif text-xl font-bold text-cream-50">
               Add New Menu Item
             </h3>
@@ -794,12 +797,12 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Dish or Drink Name *"
                 value={newMenuItem.name}
                 onChange={(e) => setNewMenuItem({ ...newMenuItem, name: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <select
                 value={newMenuItem.category}
                 onChange={(e) => setNewMenuItem({ ...newMenuItem, category: e.target.value as MenuItem['category'] })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               >
                 <option value="Grills & Suya">Grills & Suya</option>
                 <option value="Small Plates">Small Plates</option>
@@ -814,7 +817,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Price in NGN (₦) *"
                 value={newMenuItem.price}
                 onChange={(e) => setNewMenuItem({ ...newMenuItem, price: parseInt(e.target.value, 10) || 0 })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <textarea
                 required
@@ -822,14 +825,14 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Description of ingredients and flavor profile *"
                 value={newMenuItem.description}
                 onChange={(e) => setNewMenuItem({ ...newMenuItem, description: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs resize-none"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs resize-none"
               />
               <input
                 type="url"
                 placeholder="Image URL (Unsplash or Supabase Storage)"
                 value={newMenuItem.imageUrl}
                 onChange={(e) => setNewMenuItem({ ...newMenuItem, imageUrl: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <div className="flex items-center gap-4 text-xs text-cream-300">
                 <label className="flex items-center gap-1.5 cursor-pointer">
@@ -860,7 +863,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gold text-dark-950 font-bold uppercase text-xs"
+                  className="px-5 py-2.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase text-xs"
                 >
                   Save Item
                 </button>
@@ -873,9 +876,9 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
       {/* Modal: Add Event */}
       {showAddEventModal && (
         <div className="fixed inset-0 z-50 bg-dark-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-dark-900 border border-gold/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4">
+          <div className="bg-espresso-950 border border-bronze/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4">
             <h3 className="font-serif text-xl font-bold text-cream-50">
-              Add Upcoming Event
+              Add Upcoming Event or Residency
             </h3>
             <form onSubmit={handleAddEvent} className="space-y-3">
               <input
@@ -884,7 +887,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Event Title *"
                 value={newEvent.title}
                 onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <input
                 type="text"
@@ -892,7 +895,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Subtitle / Tagline *"
                 value={newEvent.subtitle}
                 onChange={(e) => setNewEvent({ ...newEvent, subtitle: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <div className="grid grid-cols-2 gap-3">
                 <input
@@ -900,7 +903,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   required
                   value={newEvent.date}
                   onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs [color-scheme:dark]"
+                  className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs [color-scheme:dark]"
                 />
                 <input
                   type="text"
@@ -908,16 +911,16 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                   placeholder="Day (e.g. Every Friday)"
                   value={newEvent.dayOfWeek}
                   onChange={(e) => setNewEvent({ ...newEvent, dayOfWeek: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                  className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
                 />
               </div>
               <input
                 type="text"
                 required
-                placeholder="Time (e.g. 9:00 PM till 4:00 AM)"
+                placeholder="Time (e.g. 9:00 PM – 4:00 AM)"
                 value={newEvent.time}
                 onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
               <textarea
                 required
@@ -925,7 +928,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Event Description *"
                 value={newEvent.description}
                 onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs resize-none"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs resize-none"
               />
               <input
                 type="url"
@@ -933,7 +936,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 placeholder="Cover Image URL *"
                 value={newEvent.coverImage}
                 onChange={(e) => setNewEvent({ ...newEvent, coverImage: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl bg-dark-850 border border-white/10 text-cream-100 text-xs"
+                className="w-full px-4 py-2.5 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-xs"
               />
 
               <div className="pt-3 flex items-center justify-end gap-3">
@@ -946,7 +949,7 @@ export default function AdminDashboard({ passcode, onLogout }: AdminDashboardPro
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-gold text-dark-950 font-bold uppercase text-xs"
+                  className="px-5 py-2.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase text-xs"
                 >
                   Publish Event
                 </button>
