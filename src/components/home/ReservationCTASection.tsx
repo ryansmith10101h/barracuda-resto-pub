@@ -16,16 +16,16 @@ export default function ReservationCTASection() {
 
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-dark-950 border border-bronze/40 text-champagne text-xs uppercase font-bold tracking-widest mb-6">
             <Sparkles className="w-3.5 h-3.5 text-bronze" />
-            <span>VIP & Table Seating</span>
+            <span>Table Reservations</span>
           </div>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-black text-cream-50 leading-tight max-w-3xl mx-auto mb-6">
-            Reserve Your Table for Tonight or Upcoming Weekends.
+            Reserve Your Table
           </h2>
 
           <p className="text-cream-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-10">
-            Due to high demand during prime dinner and nightlife hours in Wuse 2,
-            we recommend submitting your table request in advance. Velvet VIP booths and terrace dining fill quickly.
+            Joining us for dinner, drinks, or our weekly salsa and karaoke nights on the rooftop?
+            Submit your table reservation in advance or connect with our WhatsApp concierge.
           </p>
 
           {/* Action Buttons */}

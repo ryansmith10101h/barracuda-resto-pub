@@ -166,8 +166,8 @@ export default function MenuClient({ initialItems }: MenuClientProps) {
               {/* Price and Actions Bottom */}
               <div className="p-6 pt-0 space-y-3">
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="font-serif text-2xl font-bold text-champagne">
-                    {formatNaira(item.price)}
+                  <span className="font-serif text-base font-semibold text-champagne">
+                    Price on request
                   </span>
 
                   <span
@@ -191,7 +191,7 @@ export default function MenuClient({ initialItems }: MenuClientProps) {
                   <a
                     href={getWhatsAppUrl(
                       whatsapp,
-                      `Hello Barracuda Resto Pub, I would like to enquire about ordering "${item.name}" (${formatNaira(item.price)}).`
+                      `Hello Barracuda Resto Pub, I would like to enquire about ordering "${item.name}" (Price on request).`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"

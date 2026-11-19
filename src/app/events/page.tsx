@@ -4,16 +4,12 @@ import { getEvents } from '@/lib/store';
 import { PartyPopper } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Nightlife & Events Schedule | Afrobeats, Acoustic & DJ Sessions Abuja',
+  title: 'Weekly Nights at Barracuda | Salsa, Karaoke & Rooftop Socials Abuja',
   description:
-    'Discover upcoming nightlife residencies, resident DJ shifts, live sax sessions, and ladies nights at Barracuda Resto Pub in Wuse 2, Abuja. Reserve your VIP table online.',
-  openGraph: {
-    title: 'Barracuda Resto Pub Events & Nightlife | Wuse 2, Abuja',
-    description: 'Upcoming Afrobeats DJ nights, Acoustic Sunday Chill, and weekend VIP celebrations in Abuja.',
-    images: ['https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80'],
-  },
-  alternates: {
-    canonical: '/events',
+    'Salsa, karaoke and good vibes on the Wuse 2 rooftop at Barracuda Resto Pub. Cuban Salsa, Karaoke, Kizomba, and Bachata socials. Reserve a table online.',
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
@@ -28,8 +24,8 @@ export default function EventsPage() {
       '@type': 'Event',
       name: evt.title,
       description: evt.description,
-      startDate: `${evt.date}T${evt.startTime ? '20:00:00+01:00' : '21:00:00+01:00'}`,
-      endDate: `${evt.date}T04:00:00+01:00`,
+      startDate: `${evt.date}T19:00:00+01:00`,
+      endDate: `${evt.date}T23:30:00+01:00`,
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
@@ -37,7 +33,7 @@ export default function EventsPage() {
         name: 'Barracuda Resto Pub',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Adetokunbo Ademola Crescent',
+          streetAddress: '111 Adetokunbo Ademola Crescent (rooftop, Yelwa Plaza)',
           addressLocality: 'Wuse 2',
           addressRegion: 'Abuja (FCT)',
           addressCountry: 'NG',
@@ -50,10 +46,6 @@ export default function EventsPage() {
         priceCurrency: 'NGN',
         availability: 'https://schema.org/InStock',
         url: 'https://barracudarestpub.ng/reservations',
-      },
-      performer: {
-        '@type': 'PerformingGroup',
-        name: 'Barracuda Resident Artists & Guest DJs',
       },
     })),
   };
@@ -69,17 +61,15 @@ export default function EventsPage() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-espresso-900 border border-bronze/40 text-champagne text-xs uppercase font-bold tracking-widest shadow-bronze-sm">
-            <PartyPopper className="w-3.5 h-3.5 text-bronze" />
-            <span>ABUJA NIGHTLIFE & WEEKLY RESIDENCIES</span>
+            <span>Sample schedule, to be confirmed.</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-black text-cream-50 leading-tight">
-            Upcoming Events & Residencies
+            Weekly Nights at Barracuda
           </h1>
 
           <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-            Experience the heartbeat of Abuja nightlife. From soulful live acoustic saxophone sessions to
-            pulsating weekend DJ shifts, reserve your table to guarantee admission and seating.
+            Salsa, karaoke and good vibes on the Wuse 2 rooftop. Reserve a table and join the fun.
           </p>
         </div>
 

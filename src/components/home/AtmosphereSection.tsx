@@ -6,41 +6,41 @@ export default function AtmosphereSection() {
   const spaces = [
     {
       title: 'Charcoal Grills & Kitchen',
-      subtitle: 'Hardwood coals & authentic Nigerian spice mastery',
+      subtitle: 'Hardwood coals & authentic Nigerian grill flavors',
       description:
-        'Watch whole croaker fish, tiger prawns, and tender goat asun sear to perfection over open coals, delivering rich aromas and authentic woodsmoke flavor.',
+        'Watch whole croaker fish, tiger prawns, and tender goat asun sear to perfection over open hardwood coals, delivering rich aromas and authentic woodsmoke flavor.',
       image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80',
       icon: Flame,
     },
     {
       title: 'The Backlit Mixology Bar',
-      subtitle: 'Where artisanal botanicals meet vibrant conversations',
+      subtitle: 'Craft cocktails, cold draught beers & casual chats',
       description:
-        'A glowing architectural centerpiece staffed by senior mixologists crafting bespoke cocktails, pouring single malts, and sparking connection.',
+        'A glowing architectural centerpiece where our friendly bartenders shake fresh cocktails, pour ice-cold lagers, and craft refreshing mocktails.',
       image: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1000&q=80',
       icon: GlassWater,
     },
     {
-      title: 'The Breeze Terrace',
-      subtitle: 'Al-fresco dining catching the nighttime Abuja breeze',
+      title: 'The Rooftop Breeze Terrace',
+      subtitle: 'Al-fresco dining catching the Abuja nighttime breeze',
       description:
-        'Open-air lounge overlooking the vibrant Wuse 2 avenue. Ideal for Sunday grills, suya sharing platters, and relaxed evening conversations.',
+        'Open-air rooftop seating overlooking the vibrant Wuse 2 avenue. Ideal for evening drinks, suya platters, and relaxed conversations with friends.',
       image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1000&q=80',
       icon: Sparkles,
     },
     {
-      title: 'The VIP Velvet Booths',
-      subtitle: 'Intimate, elevated, and discreet bottle hospitality',
+      title: 'Indoor Pub Lounge & Tables',
+      subtitle: 'Comfortable booth & group seating for dining',
       description:
-        'Designed for high-profile celebrations, birthdays, and executive unwinding with dedicated personal service and premium bottle displays.',
+        'Cozy indoor tables and booths designed for group dinners, birthday celebrations, and casual get-togethers in a welcoming setting.',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80',
       icon: Shield,
     },
     {
-      title: 'Soundstage & Dancefloor',
-      subtitle: 'High-definition acoustic tuning for weekend nightlife',
+      title: 'Dancefloor & Social Area',
+      subtitle: 'Rooftop dance floor for salsa, kizomba & karaoke',
       description:
-        'Precision acoustic treatment hosting guest Afrobeats, Amapiano, and house DJs every Friday and Saturday from 9:00 PM till 4:00 AM.',
+        'Our vibrant social dance space hosting Tuesday Cuban salsa, Thursday Kizomba, Saturday Bachata socials, and Wednesday karaoke nights.',
       image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80',
       icon: Music2,
     },
@@ -54,11 +54,11 @@ export default function AtmosphereSection() {
             EXPERIENCE THE VENUE
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-cream-50 leading-tight">
-            Sophisticated Spaces Curated for Every Abuja Night.
+            Welcoming Rooftop Spaces for Every Occasion.
           </h2>
           <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-            From relaxed after-work conversations over craft cocktails to unforgettable VIP bottle celebrations,
-            Barracuda Resto Pub adapts effortlessly to your mood.
+            From relaxed dinners on the open rooftop terrace to weekly salsa classes and lively karaoke,
+            Barracuda Resto Pub offers a welcoming atmosphere for every visit.
           </p>
         </div>
 
@@ -69,9 +69,8 @@ export default function AtmosphereSection() {
             return (
               <div
                 key={idx}
-                className={`group relative rounded-3xl overflow-hidden bg-espresso-900 border border-white/10 hover:border-bronze/40 transition-all duration-300 shadow-elevated flex flex-col justify-end p-8 ${
-                  isLarge ? 'lg:col-span-2 min-h-[420px]' : 'min-h-[380px]'
-                }`}
+                className={`group relative rounded-3xl overflow-hidden bg-espresso-900 border border-white/10 hover:border-bronze/40 transition-all duration-300 shadow-elevated flex flex-col justify-end p-8 ${isLarge ? 'lg:col-span-2 min-h-[420px]' : 'min-h-[380px]'
+                  }`}
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">

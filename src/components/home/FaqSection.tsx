@@ -9,27 +9,27 @@ export default function FaqSection() {
   const faqs = [
     {
       q: 'Where is Barracuda Resto Pub located in Abuja?',
-      a: 'Barracuda Resto Pub is situated along the vibrant corridor of Adetokunbo Ademola Crescent in Wuse 2, Abuja, Nigeria. The venue is easily accessible from Maitama, Central Business District, and Garki, with secure dedicated parking and security personnel on site.',
+      a: 'Barracuda Resto Pub is situated on the rooftop of Yelwa Plaza along 111 Adetokunbo Ademola Crescent in Wuse 2, Abuja, Nigeria. The venue is easily accessible from Maitama, Central Business District, and Garki, with secure parking and elevator/stairs access.',
     },
     {
       q: 'What are the official operating hours?',
-      a: 'Barracuda operates Tuesday through Thursday from 4:00 PM to 2:00 AM, Friday and Saturday from 4:00 PM to 4:00 AM (late-night shift), and Sunday from 3:00 PM to 2:00 AM (Sunday Sessions). Mondays are reserved exclusively for private buyouts and corporate event bookings.',
+      a: 'Barracuda is open Monday through Saturday from 10:00 AM to 12:00 AM, and Sunday from 12:00 PM to 12:00 AM. We serve lunch, dinner, drinks, and late-evening bites throughout our operating hours.',
     },
     {
       q: 'Do I need a reservation or are walk-ins welcome?',
-      a: 'Walk-in patrons are warmly welcomed subject to seating availability. However, table reservations and VIP velvet booth bookings are strongly recommended for Friday and Saturday evenings to guarantee immediate seating without waiting.',
+      a: 'Walk-in patrons are warmly welcomed subject to seating availability. However, table reservations are recommended for weekend evenings and weekly event nights (such as Salsa and Karaoke) to guarantee immediate seating.',
     },
     {
       q: 'What culinary style and specialties are offered?',
-      a: 'Our menu combines authentic Nigerian charcoal grill mastery with international gastropub finesse. Signature dishes include Charcoal-Grilled Tiger Prawns with yaji butter, slow-roasted Goat Asun Bowls, Whole Smoked Croaker Fish with golden yam chips, Oxtail Jollof, and bespoke craft cocktails infused with local botanicals.',
+      a: 'Our menu combines authentic Nigerian charcoal grill mastery with fresh seafood and pub favorites. Specialties include Charcoal-Grilled Tiger Prawns, Goat Asun, Whole Smoked Croaker Fish with yam chips, Seafood Fried Rice, and refreshing cocktails and cold drinks.',
     },
     {
       q: 'What is the dress code at Barracuda?',
-      a: 'We observe a smart casual and nightlife chic dress standard. Elegant evening attire is encouraged, particularly during our weekend DJ residencies and VIP bottle hospitality shifts.',
+      a: 'We observe a casual and smart-casual dress standard. Come comfortable and ready to enjoy delicious food, great drinks, and a relaxed rooftop vibe.',
     },
     {
       q: 'Can I host a private celebration, birthday, or corporate dinner?',
-      a: 'Yes. We cater to private group dinners, birthday celebrations with bottle sparklers and cake service, as well as full venue corporate buyouts. Contact our concierge via WhatsApp or telephone at +234 912 235 6336 to discuss custom arrangements.',
+      a: 'Yes. We cater to private group dinners, birthday gatherings, celebrations, and corporate meetups. Contact our concierge via WhatsApp or telephone at +234 912 235 6336 to discuss arrangements.',
     },
   ];
 
@@ -65,7 +65,7 @@ export default function FaqSection() {
           </h2>
 
           <p className="text-cream-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            Essential information regarding our dining, table reservations, dress code, and nightlife hours in Wuse 2, Abuja.
+            Essential information regarding our dining, table reservations, opening hours, and rooftop experience in Wuse 2, Abuja.
           </p>
         </div>
 

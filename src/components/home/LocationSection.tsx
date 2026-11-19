@@ -4,7 +4,7 @@ import { getTelUrl, getWhatsAppUrl, OFFICIAL_OPERATING_HOURS } from '@/lib/utils
 export default function LocationSection() {
   const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+2349122356336';
   const whatsapp = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP || '2349122356336';
-  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria';
+  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || '111 Adetokunbo Ademola Crescent, Wuse 2, Abuja (rooftop, Yelwa Plaza)';
   const instagram = process.env.NEXT_PUBLIC_BUSINESS_INSTAGRAM || 'barracuda_restpub';
 
   return (
@@ -18,14 +18,14 @@ export default function LocationSection() {
                 FIND US IN ABUJA
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-cream-50 leading-tight">
-                In the Epicenter of Wuse 2 Nightlife.
+                Rooftop Dining & Pub in the Heart of Wuse 2.
               </h2>
             </div>
 
             <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-              Situated along the renowned dining and lounge strip of Adetokunbo Ademola Crescent,
+              Situated on the rooftop of Yelwa Plaza along 111 Adetokunbo Ademola Crescent,
               Barracuda Resto Pub is easily accessible from Maitama, Central Business District, and Garki.
-              Secure on-site parking and dedicated security personnel.
+              Secure on-site parking and elevator/stairs access to the rooftop.
             </p>
 
             <div className="space-y-4">
@@ -90,7 +90,7 @@ export default function LocationSection() {
             {/* Direct Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href="https://maps.google.com/?q=Adetokunbo+Ademola+Crescent+Wuse+Abuja+Nigeria"
+                href="https://maps.google.com/?q=111+Adetokunbo+Ademola+Crescent+Wuse+2+Abuja+Nigeria"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3.5 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs flex items-center gap-2 shadow-bronze-sm hover:scale-[1.02] transition-all"
@@ -130,11 +130,11 @@ export default function LocationSection() {
               <div className="relative z-10 flex items-center justify-between">
                 <div className="px-3.5 py-1.5 rounded-full bg-dark-950/90 border border-bronze/40 text-champagne text-xs font-bold uppercase tracking-wider flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>Wuse 2 Nightlife Strip</span>
+                  <span>Wuse 2 Rooftop Pub</span>
                 </div>
 
                 <a
-                  href="https://maps.google.com/?q=Adetokunbo+Ademola+Crescent+Wuse+Abuja+Nigeria"
+                  href="https://maps.google.com/?q=111+Adetokunbo+Ademola+Crescent+Wuse+2+Abuja+Nigeria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-full bg-dark-900 border border-white/10 hover:border-bronze text-cream-200 hover:text-champagne transition-colors"
@@ -153,10 +153,10 @@ export default function LocationSection() {
                   BARRACUDA RESTO PUB
                 </h4>
                 <p className="text-xs text-bronze uppercase tracking-widest font-semibold mt-1">
-                  Adetokunbo Ademola Crescent • Wuse 2
+                  111 Adetokunbo Ademola Crescent • Wuse 2
                 </p>
                 <p className="text-xs text-cream-400 mt-2 max-w-xs">
-                  Abuja FCT, Nigeria (Coordinates: 9.0765° N, 7.4764° E)
+                  Rooftop, Yelwa Plaza • Abuja (FCT), Nigeria
                 </p>
               </div>
 

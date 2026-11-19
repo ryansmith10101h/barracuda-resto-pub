@@ -18,7 +18,7 @@ export type EventItem = {
   subtitle: string;
   date: string; // YYYY-MM-DD
   dayOfWeek: string;
-  time: string; // e.g. "9:00 PM – 4:00 AM"
+  time: string; // e.g. "6:00 PM – 11:30 PM"
   startTime?: string;
   endTime?: string;
   description: string;

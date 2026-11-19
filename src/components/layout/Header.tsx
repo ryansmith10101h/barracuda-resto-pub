@@ -11,7 +11,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [status, setStatus] = useState<VenueStatus>({
     isOpen: false,
-    statusText: 'Doors Open at 4:00 PM (WAT)',
+    statusText: 'Mon–Sat from 10:00 AM • Sun from 12:00 PM',
     badgeLabel: 'Wuse 2, Abuja',
     currentDayName: 'Abuja',
   });
@@ -66,7 +66,7 @@ export default function Header() {
             <span className="text-white/20">•</span>
             <span className="flex items-center gap-1.5 text-cream-400">
               <MapPin className="w-3 h-3 text-bronze" />
-              Adetokunbo Ademola Crescent, Wuse 2, Abuja
+              111 Adetokunbo Ademola Crescent, Wuse 2, Abuja
             </span>
           </div>
 
@@ -228,15 +228,13 @@ export default function Header() {
                 <span>Operating Schedule (WAT)</span>
               </div>
               <div className="text-cream-300 text-[11px] space-y-1">
-                <p>Tue – Thu: 4:00 PM – 2:00 AM</p>
-                <p>Fri & Sat: 4:00 PM – 4:00 AM (Late Shift)</p>
-                <p>Sunday Sessions: 3:00 PM – 2:00 AM</p>
-                <p className="text-cream-400">Mon: Private Bookings & Buyouts Only</p>
+                <p>Mon – Sat: 10:00 AM – 12:00 AM</p>
+                <p>Sunday: 12:00 PM – 12:00 AM</p>
               </div>
 
               <div className="flex items-center gap-2 text-cream-400 text-[11px] pt-1 border-t border-white/5">
                 <MapPin className="w-3.5 h-3.5 text-bronze shrink-0" />
-                <span>Adetokunbo Ademola Crescent, Wuse 2, Abuja</span>
+                <span>111 Adetokunbo Ademola Crescent (Rooftop, Yelwa Plaza), Wuse 2</span>
               </div>
             </div>
 

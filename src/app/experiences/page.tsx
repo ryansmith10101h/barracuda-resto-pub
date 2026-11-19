@@ -5,16 +5,12 @@ import { Flame, GlassWater, Shield, Music2, Sparkles, ArrowRight, Calendar, Mess
 import { getWhatsAppUrl, getTelUrl } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Dining & Nightlife Experiences | VIP Lounges, Grills & Bar',
+  title: 'Rooftop Spaces & Dining Experiences | Barracuda Resto Pub Abuja',
   description:
-    'Discover the five distinct dining and nightlife spaces at Barracuda Resto Pub in Wuse 2, Abuja. Charcoal grill kitchen, illuminated cocktail bar, outdoor breeze terrace, and VIP velvet booths.',
-  openGraph: {
-    title: 'Barracuda Resto Pub Dining & Nightlife Spaces | Abuja',
-    description: 'Explore our VIP velvet booths, cocktail mixology bar, outdoor terrace, and charcoal flame grill sanctuary.',
-    images: ['https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80'],
-  },
-  alternates: {
-    canonical: '/experiences',
+    'Discover the welcoming rooftop spaces at Barracuda Resto Pub in Wuse 2, Abuja. Charcoal grill kitchen, backlit mixology bar, outdoor breeze terrace, and dance floor.',
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
@@ -25,7 +21,7 @@ export default function ExperiencesPage() {
   const experiences = [
     {
       title: 'Charcoal Grills & Kitchen',
-      subtitle: 'Hardwood coals & authentic Nigerian grill mastery',
+      subtitle: 'Hardwood coals & authentic Nigerian grill flavors',
       description:
         'At the heart of Barracuda is our live charcoal grill station. Our pitmasters grill seasoned tiger prawns, tender goat asun, and whole wood-smoked croaker fish over glowing hardwood embers, locking in authentic woodsmoke flavor and aromatic spices.',
       image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
@@ -34,39 +30,39 @@ export default function ExperiencesPage() {
     },
     {
       title: 'The Backlit Mixology Bar',
-      subtitle: 'Artisanal cocktails & premium international spirits',
+      subtitle: 'Artisanal cocktails, cold beers on tap & refreshing drinks',
       description:
-        'A glowing centerpiece designed for conversation and craft mixology. Our senior bar team fuses organic Nigerian botanicals—such as slow-reduced zobo hibiscus, local ginger, and garden lemongrass—with premium single malts, aged rums, and champagne.',
+        'A glowing centerpiece designed for casual conversation and great drinks. Our bar team mixes fresh cocktails with citrus, zobo hibiscus, and local ginger, alongside chilled draught beers and premium spirits.',
       image: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80',
       icon: GlassWater,
-      features: ['Handcrafted signature infusions', 'Extensive single malt & cognac selection', 'Interactive bar seating with sommelier service'],
+      features: ['Handcrafted cocktails & mocktails', 'Cold draught beers poured fresh', 'Friendly, attentive bar service'],
     },
     {
-      title: 'The Outdoor Breeze Terrace',
+      title: 'The Rooftop Breeze Terrace',
       subtitle: 'Al-fresco dining capturing the nighttime Abuja breeze',
       description:
-        'Perched along the vibrant corridor of Adetokunbo Ademola Crescent, the terrace offers comfortable lounge seating with open air. Perfect for casual evening tapas, chilled draught beer, and our signature Sunday acoustic sessions.',
+        'Perched on the rooftop of Yelwa Plaza along 111 Adetokunbo Ademola Crescent, the terrace offers open-air seating catching the cool evening breeze. Perfect for casual dinners, seafood platters, and relaxing with friends.',
       image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80',
       icon: Sparkles,
-      features: ['Panoramic view of Wuse 2 nightlife', 'Open-air ventilation and mood lanterns', 'Ideal for group platters & Sunday relaxation'],
+      features: ['Open-air rooftop terrace overlooking Wuse 2', 'Cool evening breeze and comfortable dining tables', 'Ideal for group platters & casual unwinding'],
     },
     {
-      title: 'VIP Velvet Booths',
-      subtitle: 'Intimate, elevated, and discreet bottle hospitality',
+      title: 'Indoor Pub Lounge & Tables',
+      subtitle: 'Comfortable booth & group seating for dining',
       description:
-        'Tailored for birthday celebrations, high-profile Abuja gatherings, and executive entertaining. Each velvet-lined booth provides secluded group seating, personal bottle sparkler service, and dedicated attendant hospitality.',
+        'Welcoming indoor seating with cozy booths and group tables. Perfect for birthday gatherings, corporate lunches, or casual dining away from the elements.',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
       icon: Shield,
-      features: ['Discreet bottle hospitality & champagne service', 'Plush velvet banquette seating', 'Custom celebratory presentations upon request'],
+      features: ['Cozy booth & table seating', 'Friendly floor service', 'Great for birthdays & group dinners'],
     },
     {
-      title: 'Soundstage & Dancefloor',
-      subtitle: 'Tuned acoustics for late-night weekend revelry',
+      title: 'Dancefloor & Social Area',
+      subtitle: 'Weekly salsa, bachata, kizomba & karaoke nights',
       description:
-        'From 9:00 PM on Friday and Saturday, Barracuda transforms. Resident and guest DJs take over our acoustically engineered soundstage, delivering the latest Afrobeats, Amapiano, and global rhythms until 4:00 AM.',
+        'Our lively social area comes alive during weekly events. Enjoy Cuban salsa on Tuesdays, Karaoke on Wednesdays, Salsa & Kizomba on Thursdays, and Bachata socials on Saturdays.',
       image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
       icon: Music2,
-      features: ['High-definition acoustic treatment', 'Top resident Afrobeats & Amapiano DJs', 'Late-night kitchen service until 2:30 AM'],
+      features: ['Beginner-friendly salsa & bachata classes', 'Wednesday open-mic karaoke nights', 'Vibrant social dance floor'],
     },
   ];
 
@@ -81,12 +77,12 @@ export default function ExperiencesPage() {
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-black text-cream-50 leading-tight">
-            Curated Dining & Nightlife Spaces
+            Rooftop Spaces & Dining
           </h1>
 
           <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-            From the sizzling warmth of our charcoal flame kitchen to the vibrant pulse of our weekend dancefloor,
-            Barracuda Resto Pub offers distinct atmospheres designed for every Abuja evening.
+            From the sizzling warmth of our charcoal flame kitchen to the open air of our rooftop terrace
+            and lively salsa dance floor, Barracuda Resto Pub offers welcoming spaces for every visit.
           </p>
         </div>
 

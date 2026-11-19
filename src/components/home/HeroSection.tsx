@@ -13,11 +13,11 @@ interface HeroSectionProps {
 
 export default function HeroSection({
   headline = 'Good Food. Great Drinks. Better Nights.',
-  subheadline = 'Abuja’s premier gastropub on Adetokunbo Ademola Crescent, Wuse 2. Where artisanal charcoal-grilled Nigerian cuisine, bespoke craft cocktails, and sophisticated nightlife converge.',
+  subheadline = 'A casual, welcoming rooftop restaurant and pub in Wuse 2, Abuja with seafood, grills and cocktails, plus salsa and karaoke nights.',
 }: HeroSectionProps) {
   const [status, setStatus] = useState<VenueStatus>({
     isOpen: false,
-    statusText: 'Doors Open at 4:00 PM (WAT)',
+    statusText: 'Mon–Sat: 10:00 AM–12:00 AM • Sun: 12:00 PM–12:00 AM',
     badgeLabel: 'Wuse 2, Abuja',
     currentDayName: 'Abuja',
   });
@@ -32,7 +32,7 @@ export default function HeroSection({
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85"
-          alt="Barracuda Resto Pub Interior Atmosphere and Bar Lounge in Wuse 2 Abuja"
+          alt="Barracuda Resto Pub Rooftop Atmosphere in Wuse 2 Abuja"
           fill
           priority
           sizes="100vw"
@@ -61,7 +61,7 @@ export default function HeroSection({
         {/* Brand Tagline */}
         <p className="text-[11px] sm:text-xs font-semibold tracking-[0.32em] uppercase text-bronze-light mb-4 flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-bronze" />
-          <span>PREMIUM GASTROPUB • COCKTAIL LOUNGE • NIGHTLIFE</span>
+          <span>ROOFTOP RESTAURANT & PUB • SEAFOOD, GRILLS & COCKTAILS</span>
           <Sparkles className="w-3.5 h-3.5 text-bronze" />
         </p>
 
@@ -100,15 +100,15 @@ export default function HeroSection({
         <div className="mt-14 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-cream-300 text-xs w-full max-w-3xl">
           <div className="flex items-center justify-center gap-2">
             <MapPin className="w-4 h-4 text-bronze shrink-0" />
-            <span>Adetokunbo Ademola Crescent, Wuse 2</span>
+            <span>111 Adetokunbo Ademola Crescent (Rooftop, Yelwa Plaza)</span>
           </div>
           <div className="flex items-center justify-center gap-2">
             <Clock className="w-4 h-4 text-bronze shrink-0" />
-            <span>Tue – Sun from 4:00 PM (Late Shift)</span>
+            <span>Mon–Sat 10:00 AM–12:00 AM • Sun 12:00 PM–12:00 AM</span>
           </div>
           <div className="flex items-center justify-center gap-2">
             <span className="w-2 h-2 rounded-full bg-bronze" />
-            <span>VIP Booths & Outdoor Terrace</span>
+            <span>Rooftop Terrace • Salsa & Karaoke</span>
           </div>
         </div>
       </div>

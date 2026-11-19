@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Clock, MapPin, Sparkles, MessageCircle, ArrowRight, ShieldCheck, Repeat } from 'lucide-react';
+import { Clock, MapPin, MessageCircle, ArrowRight, Repeat, Instagram } from 'lucide-react';
 import { EventItem } from '@/lib/types';
 import { getWhatsAppUrl, formatNaira } from '@/lib/utils';
 
@@ -12,56 +11,13 @@ interface EventsClientProps {
 }
 
 export default function EventsClient({ events }: EventsClientProps) {
-  const [filter, setFilter] = useState<'all' | 'recurring' | 'special'>('all');
-
   const whatsapp = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP || '2349122356336';
-
-  const filteredEvents = events.filter((evt) => {
-    if (evt.status !== 'upcoming') return false;
-    if (filter === 'recurring') return evt.isRecurring;
-    if (filter === 'special') return !evt.isRecurring;
-    return true;
-  });
 
   return (
     <div className="space-y-12">
-      {/* Filter Tabs */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-none">
-        <button
-          onClick={() => setFilter('all')}
-          className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
-            filter === 'all'
-              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
-              : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
-          }`}
-        >
-          All Programs ({events.filter((e) => e.status === 'upcoming').length})
-        </button>
-        <button
-          onClick={() => setFilter('recurring')}
-          className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
-            filter === 'recurring'
-              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
-              : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
-          }`}
-        >
-          Weekly Residencies
-        </button>
-        <button
-          onClick={() => setFilter('special')}
-          className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
-            filter === 'special'
-              ? 'bg-bronze text-dark-950 shadow-bronze-sm'
-              : 'bg-espresso-900 text-cream-300 hover:text-champagne border border-white/5'
-          }`}
-        >
-          Special Dated Events
-        </button>
-      </div>
-
       {/* Events Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {filteredEvents.map((evt) => (
+        {events.map((evt) => (
           <div
             key={evt.id}
             className="group bg-espresso-900/80 rounded-3xl overflow-hidden border border-white/10 hover:border-bronze/40 transition-all duration-300 flex flex-col justify-between hover:shadow-elevated"
@@ -80,13 +36,13 @@ export default function EventsClient({ events }: EventsClientProps) {
 
                 {/* Day Badge */}
                 <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-xl bg-espresso-950/95 backdrop-blur-md border border-bronze/40 text-champagne font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                  {evt.isRecurring ? <Repeat className="w-3.5 h-3.5 text-bronze" /> : <Calendar className="w-3.5 h-3.5 text-bronze" />}
+                  <Repeat className="w-3.5 h-3.5 text-bronze" />
                   <span>{evt.dayOfWeek}</span>
                 </div>
 
-                {/* Entry Type */}
+                {/* Entry Type / Ticket Price */}
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-md bg-dark-950/80 backdrop-blur-sm text-[10px] uppercase font-bold text-cream-200 border border-white/10">
-                  {evt.entryType}
+                  {evt.ticketPrice && evt.ticketPrice > 0 ? formatNaira(evt.ticketPrice) : evt.entryType}
                 </div>
 
                 {/* Title overlay */}
@@ -117,29 +73,10 @@ export default function EventsClient({ events }: EventsClientProps) {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-bronze shrink-0" />
-                    <div>
-                      <p className="text-[10px] text-cream-400 uppercase font-semibold">Dress Code</p>
-                      <p className="font-medium text-cream-100">{evt.dressCode || 'Smart Casual'}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-bronze shrink-0" />
-                    <div>
-                      <p className="text-[10px] text-cream-400 uppercase font-semibold">Access</p>
-                      <p className="font-medium text-cream-100">
-                        {evt.entryType}
-                        {evt.ticketPrice && evt.ticketPrice > 0 ? ` (${formatNaira(evt.ticketPrice)})` : ''}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-bronze shrink-0" />
                     <div>
-                      <p className="text-[10px] text-cream-400 uppercase font-semibold">Location</p>
-                      <p className="font-medium text-cream-100">Wuse 2, Abuja</p>
+                      <p className="text-[10px] text-cream-400 uppercase font-semibold">Venue</p>
+                      <p className="font-medium text-cream-100">Yelwa Plaza Rooftop, Wuse 2</p>
                     </div>
                   </div>
                 </div>
@@ -152,25 +89,33 @@ export default function EventsClient({ events }: EventsClientProps) {
                 href={`/reservations?event=${encodeURIComponent(evt.title)}`}
                 className="w-full sm:flex-1 py-3.5 px-6 rounded-full bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs shadow-bronze-sm hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2"
               >
-                <span>RESERVE TABLE / RSVP</span>
+                <span>Reserve a Table</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
               <a
                 href={getWhatsAppUrl(
                   whatsapp,
-                  `Hello Barracuda Resto Pub, I would like to RSVP for "${evt.title}".`
+                  `Hello Barracuda Resto Pub, I would like to reserve a table for "${evt.title}".`
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto py-3.5 px-6 rounded-full bg-emerald-950/60 hover:bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 font-bold uppercase tracking-wider text-xs transition-colors flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp RSVP</span>
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Small Note Under Section */}
+      <div className="text-center pt-4">
+        <p className="inline-flex items-center gap-2 text-xs text-cream-400 bg-espresso-900/60 px-5 py-2.5 rounded-full border border-white/5">
+          <Instagram className="w-4 h-4 text-bronze shrink-0" />
+          <span>Schedule may change. Follow <a href="https://instagram.com/barracuda_restpub" target="_blank" rel="noopener noreferrer" className="text-champagne hover:underline font-semibold">@barracuda_restpub</a> on Instagram for updates.</span>
+        </p>
       </div>
     </div>
   );

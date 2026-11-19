@@ -25,21 +25,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://barracudarestpub.ng'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://barracuda-resto-pub.vercel.app'),
   title: {
-    default: 'Barracuda Resto Pub | Abuja’s Premier Gastropub & Nightlife Sanctuary',
+    default: 'Barracuda Resto Pub | Rooftop Restaurant & Pub in Wuse 2, Abuja',
     template: '%s | Barracuda Resto Pub Abuja',
   },
   description:
-    'Experience Abuja’s premier gastropub on Adetokunbo Ademola Crescent, Wuse 2. Charcoal-grilled Nigerian cuisine, bespoke craft cocktails, VIP booths, and exclusive nightlife ambiance.',
+    'Casual rooftop restaurant and pub on 111 Adetokunbo Ademola Crescent, Wuse 2, Abuja. Charcoal grills, seafood, cocktails, salsa nights, and karaoke in a welcoming atmosphere.',
   keywords: [
     'Restaurant in Wuse 2 Abuja',
-    'Gastropub in Abuja',
-    'Premium restaurant in Abuja',
+    'Rooftop restaurant Abuja',
+    'Pub in Wuse 2 Abuja',
     'Cocktail bar in Wuse 2',
-    'Nightlife in Abuja',
-    'VIP dining in Abuja',
-    'Private event venue in Abuja',
+    'Salsa night Abuja',
+    'Karaoke Abuja',
     'Charcoal grilled food in Abuja',
     'barracuda resto pub',
     'adetokunbo ademola crescent restaurants',
@@ -49,35 +48,32 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_NG',
-    url: 'https://barracudarestpub.ng',
+    url: 'https://barracuda-resto-pub.vercel.app',
     siteName: 'Barracuda Resto Pub Abuja',
     title: 'Barracuda Resto Pub | Good Food. Great Drinks. Better Nights.',
     description:
-      'Abuja’s premier nightlife and dining destination in Wuse 2. Explore our charcoal grills, craft cocktails, upcoming events, and VIP table reservations.',
+      'Casual rooftop restaurant and pub in Wuse 2, Abuja. Charcoal grills, seafood, cocktails, salsa and karaoke nights, and table reservations.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
         width: 1200,
         height: 630,
-        alt: 'Barracuda Resto Pub Atmosphere and VIP Lounge in Abuja',
+        alt: 'Barracuda Resto Pub rooftop restaurant in Wuse 2, Abuja',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Barracuda Resto Pub | Abuja Nightlife & Dining',
+    title: 'Barracuda Resto Pub | Rooftop Dining & Pub in Abuja',
     description: 'Good Food. Great Drinks. Better Nights in Wuse 2, Abuja.',
     images: ['https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      index: false,
+      follow: false,
     },
   },
   verification: {
@@ -96,19 +92,19 @@ export default function RootLayout({
     '@graph': [
       {
         '@type': 'WebSite',
-        '@id': 'https://barracudarestpub.ng/#website',
-        url: 'https://barracudarestpub.ng',
+        '@id': 'https://barracuda-resto-pub.vercel.app/#website',
+        url: 'https://barracuda-resto-pub.vercel.app',
         name: 'Barracuda Resto Pub Abuja',
-        description: 'Abuja’s Premier Gastropub, Dining & Nightlife Sanctuary in Wuse 2.',
+        description: 'Casual rooftop restaurant and pub in Wuse 2, Abuja.',
         publisher: {
-          '@id': 'https://barracudarestpub.ng/#organization',
+          '@id': 'https://barracuda-resto-pub.vercel.app/#organization',
         },
       },
       {
         '@type': 'Organization',
-        '@id': 'https://barracudarestpub.ng/#organization',
+        '@id': 'https://barracuda-resto-pub.vercel.app/#organization',
         name: 'Barracuda Resto Pub',
-        url: 'https://barracudarestpub.ng',
+        url: 'https://barracuda-resto-pub.vercel.app',
         logo: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80',
         contactPoint: {
           '@type': 'ContactPoint',
@@ -121,20 +117,20 @@ export default function RootLayout({
       },
       {
         '@type': ['Restaurant', 'BarOrPub', 'FoodEstablishment'],
-        '@id': 'https://barracudarestpub.ng/#restaurant',
+        '@id': 'https://barracuda-resto-pub.vercel.app/#restaurant',
         name: 'Barracuda Resto Pub',
         image: [
           'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
           'https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80',
         ],
-        url: 'https://barracudarestpub.ng',
+        url: 'https://barracuda-resto-pub.vercel.app',
         telephone: '+2349122356336',
-        priceRange: '₦₦₦',
-        menu: 'https://barracudarestpub.ng/menu',
-        servesCuisine: ['Nigerian Contemporary', 'Charcoal Grills', 'Gastropub', 'Craft Cocktails'],
+        priceRange: '₦₦',
+        menu: 'https://barracuda-resto-pub.vercel.app/menu',
+        servesCuisine: ['Nigerian', 'Seafood', 'Charcoal Grills', 'Cocktails'],
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Adetokunbo Ademola Crescent',
+          streetAddress: '111 Adetokunbo Ademola Crescent (rooftop, Yelwa Plaza)',
           addressLocality: 'Wuse 2',
           addressRegion: 'Abuja (FCT)',
           postalCode: '900288',
@@ -148,21 +144,15 @@ export default function RootLayout({
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday'],
-            opens: '16:00',
-            closes: '02:00',
-          },
-          {
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Friday', 'Saturday'],
-            opens: '16:00',
-            closes: '04:00',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '10:00',
+            closes: '00:00',
           },
           {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Sunday'],
-            opens: '15:00',
-            closes: '02:00',
+            opens: '12:00',
+            closes: '00:00',
           },
         ],
         acceptsReservations: 'True',

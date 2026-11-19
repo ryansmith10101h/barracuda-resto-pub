@@ -4,23 +4,19 @@ import { MapPin, Phone, MessageCircle, Instagram, Clock, Navigation } from 'luci
 import { getTelUrl, getWhatsAppUrl, OFFICIAL_OPERATING_HOURS } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Location, Contact & Directions | Adetokunbo Ademola Crescent, Wuse 2 Abuja',
+  title: 'Location, Contact & Directions | Wuse 2 Abuja',
   description:
-    'Find Barracuda Resto Pub on Adetokunbo Ademola Crescent in Wuse 2, Abuja. Directions on Google Maps, phone contact, WhatsApp concierge, and verified operating hours.',
-  openGraph: {
-    title: 'Find Barracuda Resto Pub in Wuse 2, Abuja',
-    description: 'Adetokunbo Ademola Crescent, Wuse 2. Direct directions, telephone numbers, and operating hours.',
-    images: ['https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80'],
-  },
-  alternates: {
-    canonical: '/contact',
+    'Find Barracuda Resto Pub on 111 Adetokunbo Ademola Crescent in Wuse 2, Abuja (rooftop, Yelwa Plaza). Directions on Google Maps, phone contact, WhatsApp concierge, and operating hours.',
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
 export default function ContactPage() {
   const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+2349122356336';
   const whatsapp = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP || '2349122356336';
-  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria';
+  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || '111 Adetokunbo Ademola Crescent, Wuse 2, Abuja (rooftop, Yelwa Plaza)';
   const instagram = process.env.NEXT_PUBLIC_BUSINESS_INSTAGRAM || 'barracuda_restpub';
 
   return (
@@ -38,7 +34,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-            Conveniently positioned on the lively Adetokunbo Ademola strip in Wuse 2.
+            Conveniently positioned on the rooftop of Yelwa Plaza along 111 Adetokunbo Ademola Crescent in Wuse 2.
             Reach our concierge team via WhatsApp, phone, or direct enquiry form.
           </p>
         </div>
@@ -121,7 +117,7 @@ export default function ContactPage() {
               {/* Google Maps Button */}
               <div className="pt-2">
                 <a
-                  href="https://maps.google.com/?q=Adetokunbo+Ademola+Crescent+Wuse+Abuja+Nigeria"
+                  href="https://maps.google.com/?q=111+Adetokunbo+Ademola+Crescent+Wuse+2+Abuja+Nigeria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3.5 px-6 rounded-xl bg-bronze hover:bg-bronze-light text-dark-950 font-black uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-bronze-sm hover:scale-[1.02] transition-all"

@@ -5,7 +5,7 @@ import { getTelUrl, getWhatsAppUrl, OFFICIAL_OPERATING_HOURS } from '@/lib/utils
 export default function Footer() {
   const phone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+2349122356336';
   const whatsapp = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP || '2349122356336';
-  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'Adetokunbo Ademola Crescent, Wuse 2, Abuja, Nigeria';
+  const address = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || '111 Adetokunbo Ademola Crescent, Wuse 2, Abuja (rooftop, Yelwa Plaza)';
   const instagram = process.env.NEXT_PUBLIC_BUSINESS_INSTAGRAM || 'barracuda_restpub';
 
   return (
@@ -24,9 +24,9 @@ export default function Footer() {
             </div>
 
             <p className="text-cream-300 text-sm leading-relaxed max-w-md">
-              An upscale dining sanctuary and vibrant nightlife destination in the heart of Abuja.
-              Renowned for charcoal-grilled Nigerian cuisine, bespoke cocktail mixology, VIP hospitality,
-              and an atmosphere designed for memorable evenings.
+              A casual, welcoming rooftop restaurant and pub in Wuse 2, Abuja.
+              Serving fresh seafood, charcoal grills, and craft cocktails, with weekly salsa,
+              bachata, kizomba, and karaoke nights.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -133,7 +133,7 @@ export default function Footer() {
 
               <div className="pt-2">
                 <a
-                  href="https://maps.google.com/?q=Adetokunbo+Ademola+Crescent+Wuse+Abuja+Nigeria"
+                  href="https://maps.google.com/?q=111+Adetokunbo+Ademola+Crescent+Wuse+2+Abuja+Nigeria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-espresso-900 hover:bg-espresso-850 text-champagne border border-bronze/20 text-xs font-semibold transition-all"
@@ -148,7 +148,7 @@ export default function Footer() {
 
         {/* Footer Bottom Bar with Privacy & Terms */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-400 gap-4">
-          <p>© {new Date().getFullYear()} Barracuda Resto Pub. All rights reserved. Wuse 2, Abuja, Nigeria.</p>
+          <p>© {new Date().getFullYear()} Barracuda Resto Pub. All rights reserved. Rooftop, Yelwa Plaza, Wuse 2, Abuja.</p>
 
           <div className="flex items-center space-x-5">
             <Link href="/privacy" className="hover:text-champagne transition-colors">
@@ -157,11 +157,6 @@ export default function Footer() {
             <span className="text-white/20">•</span>
             <Link href="/terms" className="hover:text-champagne transition-colors">
               Terms of Service
-            </Link>
-            <span className="text-white/20">•</span>
-            <Link href="/admin/login" className="flex items-center gap-1 hover:text-champagne transition-colors">
-              <Shield className="w-3.5 h-3.5 text-bronze" />
-              <span>Staff Portal</span>
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://barracudarestpub.ng';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://barracuda-resto-pub.vercel.app';
 
   const routes = [
     {

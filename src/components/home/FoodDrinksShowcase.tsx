@@ -149,8 +149,8 @@ export default function FoodDrinksShowcase({ items }: FoodDrinksShowcaseProps) {
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] text-cream-400 uppercase tracking-wider block">Price</span>
-                    <span className="font-serif text-xl font-bold text-champagne">
-                      {formatNaira(item.price)}
+                    <span className="font-serif text-sm font-semibold text-champagne">
+                      Price on request
                     </span>
                   </div>
 

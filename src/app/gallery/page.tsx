@@ -4,16 +4,12 @@ import { getGalleryItems } from '@/lib/store';
 import { Camera } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Atmosphere & Venue Gallery | Cocktails, Grills & Nightlife Abuja',
+  title: 'Atmosphere & Venue Gallery | Wuse 2, Abuja',
   description:
-    'Browse photo chronicles of Barracuda Resto Pub in Wuse 2, Abuja. Highlighting our interior design, charcoal grills, cocktail presentations, VIP booths, and weekend nightlife.',
-  openGraph: {
-    title: 'Barracuda Resto Pub Venue Gallery | Wuse 2, Abuja',
-    description: 'Visual atmosphere of Abuja’s premier gastropub: grills, craft cocktails, VIP lounges, and nightlife.',
-    images: ['https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80'],
-  },
-  alternates: {
-    canonical: '/gallery',
+    'Browse photos of Barracuda Resto Pub in Wuse 2, Abuja. Highlighting our rooftop setting, charcoal grills, cocktail presentations, and salsa and karaoke evenings.',
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 
@@ -37,8 +33,8 @@ export default function GalleryPage() {
           </h1>
 
           <p className="text-cream-300 text-sm sm:text-base leading-relaxed">
-            Step into the Barracuda world. An immersive look into our culinary artistry, cocktail craftsmanship,
-            and vibrant Abuja weekend energy.
+            Step into Barracuda. An inside look into our rooftop pub, fresh grills, craft cocktails,
+            and weekly social dance and karaoke evenings.
           </p>
         </div>
 

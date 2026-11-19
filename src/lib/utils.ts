@@ -43,28 +43,20 @@ export function getTelUrl(phone: string): string {
 }
 
 /**
- * Single trusted source of truth for Barracuda Resto Pub operating hours
+ * Single trusted source of truth for Barracuda Resto Pub operating hours:
+ * Monday to Saturday: 10:00 AM to 12:00 AM (Midnight)
+ * Sunday: 12:00 PM to 12:00 AM (Midnight)
  */
 export const OFFICIAL_OPERATING_HOURS = [
   {
-    day: 'Tuesday – Thursday',
-    hours: '4:00 PM – 2:00 AM',
-    kitchen: 'Kitchen closes 1:00 AM',
+    day: 'Monday – Saturday',
+    hours: '10:00 AM – 12:00 AM',
+    note: 'Rooftop restaurant, seafood grills & pub service',
   },
   {
-    day: 'Friday & Saturday',
-    hours: '4:00 PM – 4:00 AM',
-    kitchen: 'Late shift • Kitchen closes 2:30 AM',
-  },
-  {
-    day: 'Sunday Sessions',
-    hours: '3:00 PM – 2:00 AM',
-    kitchen: 'Kitchen closes 1:00 AM',
-  },
-  {
-    day: 'Monday',
-    hours: 'Private Bookings Only',
-    kitchen: 'Advance reservations & buyouts only',
+    day: 'Sunday',
+    hours: '12:00 PM – 12:00 AM',
+    note: 'Afternoon & evening rooftop dining',
   },
 ];
 
@@ -78,8 +70,10 @@ export interface VenueStatus {
 
 /**
  * Dynamically check if Barracuda Resto Pub is currently open
- * strictly computed from the Africa/Lagos (WAT, UTC+1) timezone.
- * Handles overnight shift crossovers (e.g., Saturday 2 AM belongs to Friday night's shift).
+ * strictly computed from Africa/Lagos (WAT, UTC+1) timezone.
+ * Schedule:
+ * - Mon - Sat: 10:00 AM - 12:00 AM (Midnight)
+ * - Sun: 12:00 PM - 12:00 AM (Midnight)
  */
 export function getIsOpenNow(): VenueStatus {
   try {
@@ -93,136 +87,52 @@ export function getIsOpenNow(): VenueStatus {
     });
 
     const parts = formatter.formatToParts(now);
-    const weekday = parts.find((p) => p.type === 'weekday')?.value || 'Tue';
-    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '18', 10);
+    const weekday = parts.find((p) => p.type === 'weekday')?.value || 'Mon';
+    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '12', 10);
     const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10);
     const currentMins = hour * 60 + minute;
 
-    // Check A: Early morning carry-over from the PREVIOUS night's shift (00:00 to 04:00)
-    // Friday night runs into Saturday until 04:00 (240 mins)
-    // Saturday night runs into Sunday until 04:00 (240 mins)
-    // Tue, Wed, Thu night run into Wed, Thu, Fri until 02:00 (120 mins)
-    // Sunday night runs into Monday until 02:00 (120 mins)
-    if (weekday === 'Sat' && currentMins < 240) {
-      return {
-        isOpen: true,
-        statusText: 'Open Now • Friday Nightlife until 4:00 AM',
-        badgeLabel: 'Open Now',
-        currentDayName: 'Friday Night Shift',
-        closingTime: '4:00 AM',
-      };
+    // Sunday logic: 12:00 PM (720 mins) to 12:00 AM (1440 mins)
+    if (weekday === 'Sun') {
+      if (currentMins >= 720 && currentMins < 1440) {
+        return {
+          isOpen: true,
+          statusText: 'Open Now • Closes at 12:00 AM (Midnight)',
+          badgeLabel: 'Open Now',
+          currentDayName: 'Sunday',
+          closingTime: '12:00 AM',
+        };
+      } else {
+        return {
+          isOpen: false,
+          statusText: 'Sunday Hours: Opens at 12:00 PM (WAT)',
+          badgeLabel: 'Opens at 12:00 PM',
+          currentDayName: 'Sunday',
+        };
+      }
     }
 
-    if (weekday === 'Sun' && currentMins < 240) {
+    // Monday through Saturday: 10:00 AM (600 mins) to 12:00 AM (1440 mins)
+    if (currentMins >= 600 && currentMins < 1440) {
       return {
         isOpen: true,
-        statusText: 'Open Now • Saturday Nightlife until 4:00 AM',
+        statusText: 'Open Now • Closes at 12:00 AM (Midnight)',
         badgeLabel: 'Open Now',
-        currentDayName: 'Saturday Night Shift',
-        closingTime: '4:00 AM',
+        currentDayName: weekday,
+        closingTime: '12:00 AM',
       };
-    }
-
-    if ((weekday === 'Wed' || weekday === 'Thu' || weekday === 'Fri') && currentMins < 120) {
-      return {
-        isOpen: true,
-        statusText: 'Open Now • Kitchen & Bar until 2:00 AM',
-        badgeLabel: 'Open Now',
-        currentDayName: 'Late Night Shift',
-        closingTime: '2:00 AM',
-      };
-    }
-
-    if (weekday === 'Mon' && currentMins < 120) {
-      return {
-        isOpen: true,
-        statusText: 'Open Now • Sunday Chill Sessions until 2:00 AM',
-        badgeLabel: 'Open Now',
-        currentDayName: 'Sunday Night Shift',
-        closingTime: '2:00 AM',
-      };
-    }
-
-    // Check B: Today's scheduled shift starting in the afternoon/evening
-    if (weekday === 'Mon') {
+    } else {
       return {
         isOpen: false,
-        statusText: 'Closed Mondays • Available for Private Buyouts (Reopens Tue 4:00 PM)',
-        badgeLabel: 'Private Events Only',
-        currentDayName: 'Monday',
+        statusText: 'Doors Open at 10:00 AM (WAT)',
+        badgeLabel: 'Opens at 10:00 AM',
+        currentDayName: weekday,
       };
     }
-
-    if (weekday === 'Sun') {
-      // Sunday: 3:00 PM (900 mins) to 2:00 AM
-      if (currentMins >= 900) {
-        return {
-          isOpen: true,
-          statusText: 'Open Now • Sunday Acoustic & Grills until 2:00 AM',
-          badgeLabel: 'Open Now',
-          currentDayName: 'Sunday',
-          closingTime: '2:00 AM',
-        };
-      } else {
-        return {
-          isOpen: false,
-          statusText: 'Sunday Sessions Open at 3:00 PM (WAT)',
-          badgeLabel: 'Opens at 3:00 PM',
-          currentDayName: 'Sunday',
-        };
-      }
-    }
-
-    if (weekday === 'Fri' || weekday === 'Sat') {
-      // Fri & Sat: 4:00 PM (960 mins) to 4:00 AM
-      if (currentMins >= 960) {
-        return {
-          isOpen: true,
-          statusText: 'Open Now • Weekend Dining & Nightlife until 4:00 AM',
-          badgeLabel: 'Open Now',
-          currentDayName: weekday === 'Fri' ? 'Friday' : 'Saturday',
-          closingTime: '4:00 AM',
-        };
-      } else {
-        return {
-          isOpen: false,
-          statusText: 'Doors Open at 4:00 PM (WAT)',
-          badgeLabel: 'Opens at 4:00 PM',
-          currentDayName: weekday === 'Fri' ? 'Friday' : 'Saturday',
-        };
-      }
-    }
-
-    // Tue, Wed, Thu: 4:00 PM (960 mins) to 2:00 AM
-    if (weekday === 'Tue' || weekday === 'Wed' || weekday === 'Thu') {
-      if (currentMins >= 960) {
-        return {
-          isOpen: true,
-          statusText: 'Open Now • Charcoal Grills & Cocktails until 2:00 AM',
-          badgeLabel: 'Open Now',
-          currentDayName: weekday,
-          closingTime: '2:00 AM',
-        };
-      } else {
-        return {
-          isOpen: false,
-          statusText: 'Doors Open Today at 4:00 PM (WAT)',
-          badgeLabel: 'Opens at 4:00 PM',
-          currentDayName: weekday,
-        };
-      }
-    }
-
-    return {
-      isOpen: false,
-      statusText: 'Doors Open Tuesday – Sunday from 4:00 PM (WAT)',
-      badgeLabel: 'Opens at 4:00 PM',
-      currentDayName: weekday,
-    };
   } catch {
     return {
-      isOpen: true,
-      statusText: 'Open Tuesday – Sunday from 4:00 PM (WAT)',
+      isOpen: false,
+      statusText: 'Mon–Sat: 10:00 AM–12:00 AM • Sun: 12:00 PM–12:00 AM',
       badgeLabel: 'Wuse 2, Abuja',
       currentDayName: 'Abuja',
     };

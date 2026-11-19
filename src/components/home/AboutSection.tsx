@@ -6,27 +6,27 @@ export default function AboutSection() {
   const pillars = [
     {
       icon: Flame,
-      title: 'Charcoal Flame Mastery',
+      title: 'Charcoal & Seafood Grills',
       description:
-        'Slow-roasted Nigerian goat asun, prime suya fillets, and whole smoked croaker fish seasoned with authentic regional spices and charred to perfection.',
+        'Fresh croaker fish, spiced tiger prawns, tender goat asun, and prime suya grilled over hardwood charcoal with authentic Nigerian spices.',
     },
     {
       icon: Wine,
-      title: 'Bespoke Mixology Lab',
+      title: 'Cocktails & Cold Refreshments',
       description:
-        'Craft cocktails balancing indigenous botanicals like zobo reductions and local ginger with premium international spirits and 24k gold shimmer.',
+        'Craft cocktails balancing fresh botanicals like hibiscus and ginger with fine spirits, plus cold beers on tap and refreshing mocktails.',
     },
     {
       icon: Users,
-      title: 'Elevated VIP Hospitality',
+      title: 'Welcoming Rooftop Hospitality',
       description:
-        'Plush velvet booths, discreet bottle service, and private sections designed for corporate dinners, birthdays, and high-profile Abuja gatherings.',
+        'Comfortable outdoor and indoor seating with friendly service, perfect for casual lunches, evening dinners, and birthday celebrations.',
     },
     {
       icon: Sparkles,
-      title: 'Unrivaled Urban Rhythm',
+      title: 'Salsa & Karaoke Nights',
       description:
-        'A carefully tuned acoustic soundstage where mellow evening vibes seamlessly transition into pulsating late-night Afro-groove sets.',
+        'Weekly Cuban salsa classes, Bachata socials, Kizomba evenings, and Wednesday karaoke sessions under the Abuja night sky.',
     },
   ];
 
@@ -42,7 +42,7 @@ export default function AboutSection() {
             <div className="relative h-[480px] sm:h-[560px] rounded-3xl overflow-hidden border border-white/10 shadow-elevated bg-espresso-950">
               <Image
                 src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
-                alt="Charcoal grilling of fresh meats and suya spices at Barracuda Resto Pub"
+                alt="Charcoal grilling of fresh seafood and suya at Barracuda Resto Pub"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center filter brightness-90 contrast-105"
@@ -52,12 +52,12 @@ export default function AboutSection() {
 
             {/* Overlapping Floating Atmosphere Card */}
             <div className="hidden sm:block absolute -bottom-8 -right-6 bg-espresso-950/95 border border-bronze/30 rounded-2xl p-6 shadow-bronze-sm backdrop-blur-md max-w-xs">
-              <p className="text-champagne font-serif text-2xl font-bold">Wuse 2, Abuja</p>
+              <p className="text-champagne font-serif text-2xl font-bold">Wuse 2 Rooftop</p>
               <p className="text-[10px] uppercase tracking-widest text-bronze-light font-semibold mt-1">
-                Adetokunbo Ademola Crescent
+                Yelwa Plaza • 111 Adetokunbo Ademola
               </p>
               <p className="text-cream-300 text-xs mt-2 leading-relaxed">
-                Abuja’s prime nightlife corridor, elevated with culinary finesse and genuine Nigerian hospitality.
+                A casual rooftop spot in the heart of Abuja for fresh seafood, charcoal grills, cocktails, and dancing.
               </p>
             </div>
           </div>
@@ -66,23 +66,23 @@ export default function AboutSection() {
           <div className="lg:col-span-6 space-y-8">
             <div>
               <span className="text-[11px] font-bold tracking-[0.25em] text-bronze uppercase block mb-3">
-                OUR CULINARY & NIGHTLIFE STORY
+                OUR STORY & ATMOSPHERE
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-cream-50 leading-tight">
-                Where Charcoal Grill Mastery Meets Abuja’s Nightlife Soul.
+                Rooftop Dining, Great Grills, and Social Nights.
               </h2>
             </div>
 
             <div className="space-y-4 text-cream-300 text-sm sm:text-base leading-relaxed">
               <p>
-                Barracuda Resto Pub was conceived for those who demand more from their evening in Abuja.
-                Too often, one has to choose between a sterile fine-dining restaurant and a noisy,
-                chaotic club. We unified both into an atmospheric sanctuary.
+                Perched on the rooftop of Yelwa Plaza along Adetokunbo Ademola Crescent in Wuse 2,
+                Barracuda Resto Pub is a casual, welcoming venue designed for unwinding with friends,
+                savoring delicious food, and enjoying good music.
               </p>
               <p>
-                From the crackle of hardwood charcoal in our kitchen to the crisp pour of craft
-                libations at our backlit bar, every detail is engineered to honor Nigerian palate
-                richness while embracing cosmopolitan nightlife standards.
+                From the crackle of hardwood charcoal in our open grill to chilled draught beers,
+                our rooftop combines relaxed open-air dining with energetic weekly social nights—featuring
+                Cuban salsa, Kizomba, Bachata socials, and lively Wednesday karaoke.
               </p>
             </div>
 

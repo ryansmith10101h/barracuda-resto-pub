@@ -255,16 +255,18 @@ export default function ReservationForm() {
               onChange={(e) => setFormData({ ...formData, time: e.target.value })}
               className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-sm focus:outline-none focus:border-bronze transition-colors"
             >
-              <option value="16:00">4:00 PM (Doors Open)</option>
+              <option value="11:00">11:00 AM (Early Lunch)</option>
+              <option value="12:00">12:00 PM (Lunch)</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM (Afternoon)</option>
               <option value="17:00">5:00 PM</option>
               <option value="18:00">6:00 PM (Early Dinner)</option>
               <option value="19:00">7:00 PM</option>
-              <option value="20:00">8:00 PM (Prime Dinner)</option>
-              <option value="21:00">9:00 PM (Nightlife Shift Starts)</option>
-              <option value="22:00">10:00 PM (Lounge & Bottle Hospitality)</option>
-              <option value="23:00">11:00 PM</option>
-              <option value="00:00">12:00 AM Midnight</option>
-              <option value="01:00">1:00 AM (Late Shift)</option>
+              <option value="20:00">8:00 PM (Dinner & Social)</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="22:00">10:00 PM (Late Evening)</option>
             </select>
           </div>
 
@@ -298,10 +300,10 @@ export default function ReservationForm() {
               }
               className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 text-sm focus:outline-none focus:border-bronze transition-colors"
             >
-              <option value="Main Lounge">Main Dining Lounge</option>
-              <option value="VIP Booth">VIP Velvet Booth (Bottle Hospitality)</option>
-              <option value="Outdoor Terrace">Outdoor Breeze Terrace</option>
-              <option value="Bar Counter">Illuminated Mixology Bar</option>
+              <option value="Main Lounge">Main Indoor Dining</option>
+              <option value="VIP Booth">Indoor Booth Seating</option>
+              <option value="Outdoor Terrace">Rooftop Breeze Terrace</option>
+              <option value="Bar Counter">Rooftop Bar</option>
             </select>
           </div>
 
@@ -322,8 +324,8 @@ export default function ReservationForm() {
               <option value="Casual Dining & Drinks">Casual Dining & Drinks</option>
               <option value="Birthday Celebration">Birthday Celebration</option>
               <option value="Date Night">Romantic Date Night</option>
-              <option value="Corporate Dinner">Corporate / Executive Dinner</option>
-              <option value="Private Lounge Celebration">Private Celebration / Buyout Enquiry</option>
+              <option value="Corporate Dinner">Corporate / Team Dinner</option>
+              <option value="Private Lounge Celebration">Private Group Celebration</option>
             </select>
           </div>
         </div>
@@ -337,7 +339,7 @@ export default function ReservationForm() {
             rows={3}
             value={formData.specialRequests}
             onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
-            placeholder="e.g. Specific bottle request (Moët, Hennessy VSOP), champagne ice bucket, birthday cake arrival, seating preference..."
+            placeholder="e.g. Birthday cake arrival, salsa dance table preference, dietary notes, seating preference..."
             className="w-full px-4 py-3 rounded-xl bg-espresso-900 border border-white/10 text-cream-100 placeholder:text-cream-500 text-sm focus:outline-none focus:border-bronze transition-colors resize-none"
           />
         </div>
